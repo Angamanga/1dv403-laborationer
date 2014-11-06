@@ -16,17 +16,17 @@ window.onload = function(){
 		count++; //Räknare för antalet gissningar.
 		
 		//Kontrollerar gissningen mot secret number och
-		if(number==secret){ 
-			return [true, "Grattis du vann! Det hemliga talet var " +secret +" och du behövde " +count +" gissningar för att hitta det."];
+		if(number<0&&number>100){
+			return [false, "Talet är utanför intervallet 0 - 100"];
 		}
-		else if(number<secret && number>0){
+		else if(number<secret){
 			return [false, "Det hemliga talet är högre!"];
 		}
-		else if(number>secret&&number<101){
+		else if(number>secret){
 			return [false, "Det hemliga talet är lägre!"];
 		}
-		else{
-			return [false, "Talet är utanför intervallet 0 - 100"];
+		else if(number==secret){ 
+			return [true, "Grattis du vann! Det hemliga talet var " +secret +" och du behövde " +count +" gissningar för att hitta det."];
 		}
 	};
 	
