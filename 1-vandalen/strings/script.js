@@ -8,23 +8,24 @@ window.onload = function(){
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
 
-	var newString;
-	var character;
-	for(var i=0;i<str.length;i++){
-	if(str[i]==="a"||str[i]==="A")
- 		{
- 			character="#";
- 		}
+//Variabler som hanterar de konverterade värdena 
+var newString=""; 
+var character; 
+//Loop för att jämföra tecknen i den inmatade strängen(str)
+for(var i=0;i<str.length;i++){
+	if(str[i]==="a"||str[i]==="A"){
+		character="#";
+	}
 	else if(str[i]===str[i].toUpperCase()){
-	character=str[i].toLowerCase();
-    	}
+		character=str[i].toLowerCase();
+	}
 	else if(str[i]===str[i].toLowerCase()){
-	character=str[i].toUpperCase();
+		character=str[i].toUpperCase();
 	}
- 	newString=str.replace(character, str[i]);
-	}
-	return newString;
-	 };
+	newString+=character;//Adderar konverterade tecken till ny sträng
+}
+	return newString; //returnerar den nya, konverterade strängen.
+};
 	// ------------------------------------------------------------------------------
 
 
@@ -46,8 +47,8 @@ window.onload = function(){
 			p.classList.add( "error"); // Växla CSS-klass, IE10+
 			p.innerHTML = error.message;
 		}
-	
-  });
+
+	});
 };
 
 
