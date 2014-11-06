@@ -8,24 +8,30 @@ window.onload = function(){
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
 
-//Variabler som hanterar de konverterade värdena 
-var newString=""; 
-var character; 
-//Loop för att jämföra tecknen i den inmatade strängen(str)
-for(var i=0;i<str.length;i++){
-	if(str[i]==="a"||str[i]==="A"){
-		character="#";
+var newString=""; //Variabel som hanterar de konverterade värdena. 
+
+//Kontrollerar om en sträng har skrivits in. 
+if(str===""){
+	newString="ingen sträng har skrivits in";
+}
+//Loop för att jämföra tecknen i den inmatade strängen(str)	och adderar de konverterade tecknen till ny sträng
+else{ 
+	for(var i=0;i<str.length;i++){
+		if(str[i]==="a"||str[i]==="A"){
+			newString+="#";
+		}
+		else if(str[i]===str[i].toUpperCase()){
+			newString+=str[i].toLowerCase();
+		}
+		else if(str[i]===str[i].toLowerCase()){
+			newString+=str[i].toUpperCase();
+		}
 	}
-	else if(str[i]===str[i].toUpperCase()){
-		character=str[i].toLowerCase();
-	}
-	else if(str[i]===str[i].toLowerCase()){
-		character=str[i].toUpperCase();
-	}
-	newString+=character;//Adderar konverterade tecken till ny sträng
 }
 	return newString; //returnerar den nya, konverterade strängen.
 };
+
+
 	// ------------------------------------------------------------------------------
 
 
