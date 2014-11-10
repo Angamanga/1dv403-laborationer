@@ -4,13 +4,21 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-		
+	var today=Date.now();
+	var thisYear=new Date("2014-01-01");
+	var t1 = new Date(date);
+	var t2 = new Date(today);
+	var first = t2.getTime() - t1.getTime();
+	var todayThisYear = t2.getTime() - thisYear.getTime();
+	var daysbTY = 
 
 
-			// Din kod här.
+	var msBetweenDates = difBD - todayThisYear;
+	var days = msBetweenDates/8.64e+7;
+	return days;
 
 
-
+				
 
 	};
 	// ------------------------------------------------------------------------------
