@@ -4,22 +4,38 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-	var today=Date.now();
-	var thisYear=new Date("2014-01-01");
-	var t1 = new Date(date);
-	var t2 = new Date(today);
-	var first = t2.getTime() - t1.getTime();
-	var todayThisYear = t2.getTime() - thisYear.getTime();
-	var daysbTY = 
+	var now=Date.now();
+	var today = new Date(now);
+	var birthday = new Date(date);
+	var a = 0;
+	var	birthmonth = birthday.getDate();
+	var todaymonth = today.getDate();
+	if(birthday.getMonth()>today.getMonth()){
+			a=2014;
+	}
+	else if(birthday.getMonth()<today.getMonth()){
+		a=2015;
+	}
+	else{
+		if(birthday.getDate()>today.getDate()){
+			a=2014;
+		}
+		else if(birthday.getDate()<today.getDate()){
+			a=2015;
+			}
+		else{
+			a=2014;
+		}
+	};
 
-
-	var msBetweenDates = difBD - todayThisYear;
-	var days = msBetweenDates/8.64e+7;
+	console.log(a);
+	console.log(birthmonth);
+	console.log(todaymonth);
+	var nB = birthday.setFullYear(a);
+	var nextBirthday = new Date(nB);
+	var msToBirthday = nextBirthday.getTime(); - today.getTime();
+	var days = msToBirthday/86400000;
 	return days;
-
-
-				
-
 	};
 	// ------------------------------------------------------------------------------
 
