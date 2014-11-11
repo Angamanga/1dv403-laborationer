@@ -4,38 +4,42 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-	var now=Date.now();
-	var today = new Date(now);
-	var birthday = new Date(date);
-	var a = 0;
-	var	birthmonth = birthday.getDate();
-	var todaymonth = today.getDate();
+		//kontrollerar att inmatat datum ar i ratt format.
+	if(date.match(/^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/)){
+	var now=Date.now(); 
+	var today = new Date(now);//datumobjekt for idag
+	var todayYear=today.getFullYear(); //tar fram aktuellt ar
+	console.log(todayYear);
+	var birthday = new Date(date);//datumobjekt for fodelsedagen
+	var a; //hjalpvariabel for att kunna skapa datumobjekt for nasta fodelsedag
+
+//if-sats for att kontrollera om nasta fodelsedag intraffar i ar eller nasta ar
 	if(birthday.getMonth()>today.getMonth()){
-			a=2014;
+			a=todayYear;
 	}
 	else if(birthday.getMonth()<today.getMonth()){
-		a=2015;
+		a=todayYear+1;
 	}
 	else{
-		if(birthday.getDate()>today.getDate()){
-			a=2014;
-		}
+		if(birthday.getDate()>=today.getDate()){
+			a=todayYear;	
+				}
 		else if(birthday.getDate()<today.getDate()){
-			a=2015;
+			a=todayYear+1;
 			}
-		else{
-			a=2014;
 		}
-	};
-
-	console.log(a);
-	console.log(birthmonth);
-	console.log(todaymonth);
-	var nB = birthday.setFullYear(a);
-	var nextBirthday = new Date(nB);
-	var msToBirthday = nextBirthday.getTime(); - today.getTime();
-	var days = msToBirthday/86400000;
-	return days;
+	
+	var nB = birthday.setFullYear(a); //andrar artalet sa att det stammer overens med nar nasta fodelsedag intraffar
+	var nextBirthday = new Date(nB); //datumobjekt for nasta fodelsedag
+	var msToBirthday = nextBirthday.getTime() - today.getTime(); //ms till nasta fodelsedag
+	var days = Math.floor(Math.abs(msToBirthday/86400000));//dagar till nasta fodelsedag
+	console.log(days);
+	console.log(parseInt(days)+1);
+	return parseInt(days)+1;//returnerar dagar kvar till nasta fodelsedag
+}
+	else{ 
+		throw new Error("Du har matat in födelsedagen i fel format. Använd formatet 'YYYY-MM-DD'");//om felaktigt format matats in kastas ett undantag.
+	}
 	};
 	// ------------------------------------------------------------------------------
 
