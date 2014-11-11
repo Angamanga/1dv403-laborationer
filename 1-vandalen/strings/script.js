@@ -1,33 +1,27 @@
 "use strict";
 
 window.onload = function(){
-
-	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-		// Plats för förändring.		
-		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
+	var newString=""; //Variabel som hanterar de konverterade värdena. 
 
-var newString=""; //Variabel som hanterar de konverterade värdena. 
-
-//Kontrollerar om en sträng har skrivits in. 
-if(str===""){
-	newString="ingen sträng har skrivits in";
-}
-//Loop för att jämföra tecknen i den inmatade strängen(str)	och adderar de konverterade tecknen till ny sträng
-else{ 
-	for(var i=0;i<str.length;i++){
-		if(str[i]==="a"||str[i]==="A"){
-			newString+="#";
-		}
-		else if(str[i]===str[i].toUpperCase()){
-			newString+=str[i].toLowerCase();
-		}
-		else if(str[i]===str[i].toLowerCase()){
-			newString+=str[i].toUpperCase();
+	//Kontrollerar om en sträng har skrivits in. 
+	if(str===""){
+		throw new Error("ingen sträng har skrivits in");
+	}
+	//Loop för att jämföra tecknen i den inmatade strängen(str)	och adderar de konverterade tecknen till ny sträng
+	else{ 
+		for(var i=0;i<str.length;i++){
+			if(str[i]==="a"||str[i]==="A"){
+				newString+="#";
+			}
+			else if(str[i]===str[i].toUpperCase()){
+				newString+=str[i].toLowerCase();
+			}
+			else if(str[i]===str[i].toLowerCase()){
+				newString+=str[i].toUpperCase();
+			}
 		}
 	}
-}
 	return newString; //returnerar den nya, konverterade strängen.
 };
 
