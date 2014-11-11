@@ -5,17 +5,10 @@ window.onload = function(){
 	var secret =  Math.floor( Math.random() * (100-1)+1) + 1; // Slumpat tal mellan 1-100.
 	var count=0; //variabel för att räkna antalet gissningar. Deklareras utanför guessfunktionen för att inte nollställas varje gång en gissning görs.
 	 
-
-	// I denna funktion ska du skriva koden för att hantera "spelet"
-
 	var guess = function(number){
-		//console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
-		//console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
-		// Plats för förändring.
-		
 		count++; //Räknare för antalet gissningar.
 		
-		//Kontrollerar gissningen mot secret number och
+		//If sats som kontrollerar gissningen mot secret number och returnerar en array innehållande ett booleanvärde och ett meddelande till användaren.
 		if(number<0&&number>100){
 			return [false, "Talet är utanför intervallet 0 - 100"];
 		}
