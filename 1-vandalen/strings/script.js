@@ -14,11 +14,11 @@ window.onload = function(){
 			if(str[i]==="a"||str[i]==="A"){
 				newString+="#";
 			}
-			else if(str[i]===str[i].toUpperCase()){
-				newString+=str[i].toLowerCase();
+			else if(str[i]===str[i].toLocaleUpperCase()){
+				newString+=str[i].toLocaleLowerCase();
 			}
-			else if(str[i]===str[i].toLowerCase()){
-				newString+=str[i].toUpperCase();
+			else if(str[i]===str[i].toLocaleLowerCase()){
+				newString+=str[i].toLocaleUpperCase();
 			}
 		}
 	}

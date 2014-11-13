@@ -1,51 +1,61 @@
 "use strict";
+
 var data = [{name: "John Häggerud", age: 37}, {name: "Johan Leitet", age: 36}, {name: "Mats Loock", age: 46}]; //input array med objekt
+
 
 var makePerson = function(persArr){
 
-var sortedPersArr;
+var arrayAge;
 var minAge;
 var maxAge;
-var sum;
 var average;
-var sortedNames;
-var listNames;
-var names;
 
-//funktion for att sortera arrayen
-function sortByKey(array, key) {   
-    return array.sort(function(a, b) {
-        var x = a[key]; var y = b[key];
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-    });}
-sortedPersArr=sortByKey(data,'age');			//array med objekten sorterade efter age
-minAge = sortedPersArr[0].age;						//lagsta alder
-maxAge = sortedPersArr[sortedPersArr.length-1].age;	//hogsta alder
-sum = sortedPersArr.reduce(function (a, b) {
-  return {age: a.age + b.age}; 						// raknar ut summan av aldrarna i arrayen
-})
-average =Math.ceil(sum.age/(sortedPersArr.length)); 			//raknar ut medelvardet av aldrarna
-			
 
-listNames = persArr.map(function(elem){		//laser ut namnen och returnerar dom som en array
-    return elem.name;
-})
+function Ages(input)
+{
+	
+		arrayAge=input.map(function(input){				//laser ut namnen och returnerar dom som en ny array
+			if(typeof(input.age) !== "number")	
+			{
+				throw new Error("den inlasta arrayen innehaller inga egenskaper 'age' av typen number");
+			}
+			return input.age;
+			}).sort();
+		
+		minAge = arrayAge[0];						//lagsta alder
+		maxAge = arrayAge[arrayAge.length-1];		//hogsta alder
+		average = arrayAge.reduce(function(a, b) 	// raknar ut summan av aldrarna i arrayen
+		{
+			return a + b;
+		});										
+		average = Math.ceil(average/(arrayAge.length)); //raknar ut medelvardet av aldrarna
+}	
+var arrayName;
+function Names(input)
+{
+	
+		arrayName = persArr.map(function(input){
+		if(typeof(input.name) !== "string")
+		{		throw new Error("den inlasta arrayen innehaller inga egenskaper'name' av typen string");
+    			
+    	}
+    	return input.name;
+					});
+		
+		arrayName.sort(function(a, b) {			//sorterar arrayen
+					return a.localeCompare(b);
+				});
 
-names=((listNames.sort(function(a, b) {			//sorterar arrayen och gör om den till en sträng separerade med ", "
-return a.localeCompare(b);
-})).join(', ')).toString(); 
+		return arrayName.join(', ');						//gor om arrayen till en strang separerade med ", "			
+	}
+	
+var ages = Ages(persArr);
+var names = Names(persArr);
 
 return {minAge:minAge, maxAge:maxAge, averageAge:average, names:names};
 
+};
 
-
-}
 
 var result = makePerson(data);
 console.log(result);
-
-
-
-function addLast(prev, current) {
-        return prev + current;
-    }
