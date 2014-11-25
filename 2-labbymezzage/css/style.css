@@ -1,18 +1,9 @@
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
+/*@media screen and (min-width: 501px)*/
 header,
-hgroup,
-main,
-menu,
-nav,
-section {
+main
+ {
     display: block;
 }
-/*@media screen and (min-width: 501px)*/
 
 body {
     background: #C6C8C5;
@@ -21,12 +12,12 @@ body {
 }
 
 .container {
-    max-width: 300px;
+    Width: 300px;
     margin: 0 auto;
     text-align: justify;
     line-height: 1.8em;
     margin: 0 auto;
-    background: #CFD2C5;
+    background: #787878;
     border: 1px solid #ccc;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -36,6 +27,7 @@ body {
     -webkit-appearance: none;
 }
 .messageInput {
+    width:290px;
     border: 1px solid #ccc;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -43,8 +35,8 @@ body {
     -moz-box-shadow: 2px 2px 3px #666;
     -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow: 2px 2px 3px #666;
-    font-size: 20px;
-    padding: 4px 7px;
+   
+   
     outline: 0;
     -webkit-appearance: none;
 }
@@ -52,14 +44,26 @@ body {
     border-color: #339933;
 }
 .messages{
-     border: 1px solid #red;
+    width:290px;
+     border: 1px #C6C8C5;
      background:white;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
     -moz-box-shadow: 2px 2px 3px #666;
     -webkit-box-shadow: 2px 2px 3px #666;
-     padding: 4px 7px;
+     margin:3px;
     outline: 0;
     -webkit-appearance: none;
     }
+ div.messages img{
+   margin-left:260px;
+}
+
+
+.counter{
+    font-size:0.7em;
+    padding:0;
+    margin:0 0 0 185px;
+    
+}

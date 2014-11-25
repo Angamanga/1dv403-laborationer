@@ -1,26 +1,70 @@
 /*@media screen and (max-width: 500px)*/
 
-body{
-    background:#C6C8C5;
-    color:#430F29;
+header,
+main
+ {
+    display: block;
+}
+
+body {
+    background: #C6C8C5;
+    color: #430F29;
     font-family: Lora, 'Palatino Linotype', Palatino, serif;
 }
 
-.messageInput, fieldset{
-
-border: 1px solid #ccc;
--moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-box-shadow: 2px 2px 3px #666;
-  -webkit-box-shadow: 2px 2px 3px #666;
-  box-shadow: 2px 2px 3px #666;
-   font-size: 20px;
- padding: 4px 7px;
-outline: 0;
- -webkit-appearance: none;
-
+.container {
+    Width: 300px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 1.8em;
+    margin: 0 auto;
+    background: #787878;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.messageInput {
+    width:290px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+   
+   
+    outline: 0;
+    -webkit-appearance: none;
 }
 .messageInput:focus {
     border-color: #339933;
+}
+.messages{
+    width:290px;
+     border: 1px #C6C8C5;
+     background:white;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+     margin:3px;
+    outline: 0;
+    -webkit-appearance: none;
+    }
+ div.messages img{
+   margin-left:260px;
+}
+
+
+.counter{
+    font-size:0.7em;
+    padding:0;
+    margin:0 0 0 185px;
+    
 }

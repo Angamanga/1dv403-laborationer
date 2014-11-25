@@ -9,35 +9,30 @@
     <link rel="stylesheet" media="screen and (max-width:500px)" href="css/mobile.css">
     <meta name="viewport" content="width=device-width, minimum-scale=1">
    
-    <!--  <script src="js/message.js"></script>-->
-    <!--<script src="js/script.js"></script>-->
+   <script src="js/message.js"></script>
+    <script src="js/script.js"></script>
     <title>Webbteknik 1, Laboration 2</title>
 </head>
 
 <body>
 
    
-        <header>
+        
+        <main>
+            
+            
+            <div class="container">
+                <header>
             <h1>Labby Mezzage</h1>
         </header>
-        <main>
-            <fieldset class="container">
              <div class ="messages">
-                <img src="pics/14.png" alt="tid"></img>
-                <img src="pics/12.png" alt="radera meddelande"></img>
+                <img src="pics/14.png" alt="tid" class="showDate"></img>
+                <img src="pics/12.png" alt="radera meddelande" class="delete"></img>
              </div>    
-              <div class ="messages">
-                <img src="pics/14.png" alt="tid"></img>
-                <img src="pics/12.png" alt="radera meddelande"></img>
-             </div>  
-               <div class ="messages">
-                <img src="pics/14.png" alt="tid"></img>
-                <img src="pics/12.png" alt="radera meddelande"></img>
-             </div>    
-            
+             <div><p class="counter"> </p></div>
            <textarea class="messageInput"></textarea>
-           <input type="submit" class="submit" value="Skicka"/>
-            </fieldset>
+           <input type ="submit" class="submitMessage" value="Skicka"/>
+            </div>
 
         </main>
 

@@ -17,10 +17,15 @@ function Message(message, date){
 	}
 }
 
-Message.prototype.toString = function(first_argument) {
+Message.prototype.toString = function() {
 	return this.getText() + " (" + this.getDate() + " )";
 };
 
 Message.prototype.getHTMLtext = function(first_argument) {
-	// body...
+			// http://www.w3schools.com/js/js_htmldom_nodes.asp Las pa!!
+	// return  	<div class ="messages">
+	// getText();
+ //               <img src="pics/14.png" alt="tid" class="showDate"></img>
+ //               <img src="pics/12.png" alt="radera meddelande" class="delete"></img>
+ //       		  </div>    
 };
