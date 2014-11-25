@@ -1,0 +1,65 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+    display: block;
+}
+/*@media screen and (min-width: 501px)*/
+
+body {
+    background: #C6C8C5;
+    color: #430F29;
+    font-family: Lora, 'Palatino Linotype', Palatino, serif;
+}
+
+.container {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 1.8em;
+    margin: 0 auto;
+    background: #CFD2C5;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.messageInput {
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.messageInput:focus {
+    border-color: #339933;
+}
+.messages{
+     border: 1px solid #red;
+     background:white;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+     padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
+    }
