@@ -55,7 +55,7 @@ body {
      margin:3px;
     outline: 0;
     -webkit-appearance: none;
-    }
+       }
  div.messages img{
    margin-left:260px;
 }
