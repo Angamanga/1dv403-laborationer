@@ -1,20 +1,14 @@
 /*@media screen and (min-width: 501px)*/
-header,
-main
- {
-    display: block;
-}
-
 body {
     background: #C6C8C5;
     color: #430F29;
-    font-family: Lora, 'Palatino Linotype', Palatino, serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .board {
-    Width: 300px;
+    width: 300px;
     margin: 0 auto;
-    text-align: justify;
+    text-align: center;
     line-height: 1.8em;
     margin: 0 auto;
     background: #787878;
@@ -26,6 +20,10 @@ body {
     outline: 0;
     -webkit-appearance: none;
 }
+.board h1{
+   font-family: 'Londrina Outline', cursive;
+}
+
 .messageInput {
     width:290px;
     border: 1px solid #ccc;
@@ -35,13 +33,11 @@ body {
     -moz-box-shadow: 2px 2px 3px #666;
     -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow: 2px 2px 3px #666;
-   
-   
-    outline: 0;
+     outline: 0;
     -webkit-appearance: none;
 }
 .messageInput:focus {
-    border-color: #339933;
+    border-color: #430F29;
 }
 .messages{
     width:290px;
@@ -66,5 +62,22 @@ body {
     font-size:0.7em;
     padding:0;
     margin:0 0 0 185px;
+    
+}
+.submitMessage{
+background:#C6C8C5;
+color:#430F29;
+text-shadow:none;
+border-radius:200px;
+font-size:14px;
+padding:10px 70px;
+text-transform:uppercase;
+border:0;
+box-shadow: none;
+text-shadow:none;
+
+}
+.submitMessage:hover{
+    background:#fffdfa;
     
 }

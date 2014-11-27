@@ -17,12 +17,14 @@ window.onload = function() {
             var container = document.querySelector(".container");
             var messContainer = document.createElement("div"); 
             messContainer.className = "messages";
-            container.insertBefore(messContainer);
+            container.appendChild(messContainer);
             var textP = document.createElement("p");
             textP.setAttribute("class","text");
+             messContainer.appendChild(textP);
+            textP.innerHTML = MessageBoard.messages[messageID].getHTMLtext();
             var timeP = document.createElement("p");
             timeP.setAttribute("class","time");
-            var text = document.createTextNode(MessageBoard.messages[messageID].getText());
+            // var text = document.createTextNode(MessageBoard.messages[messageID].getHTMLtext());
             var time = document.createTextNode(MessageBoard.messages[messageID].getDate().getHours() +":"+ MessageBoard.messages[messageID].getDate().getMinutes() + ":"+MessageBoard.messages[messageID].getDate().getSeconds());
             var linkDelete=document.createElement("a");
             linkDelete.setAttribute("src", "#");
@@ -33,15 +35,16 @@ window.onload = function() {
             linkDelete.appendChild(img2);
              messContainer.appendChild(linkDelete);
             img2.onclick = function(messageID){
-                console.log(MessageBoard.messages.length);
+               var a=window.confirm("VIll du verkligen radera meddelandet?");
+                    if(a===true){                   
                 MessageBoard.removeMessage(messageID);
                 MessageBoard.renderMessages();
-                console.log(MessageBoard.messages.length);
                 p.innerHTML = "Antal meddelanden: " + MessageBoard.messages.length;
-            }
+                    }
+                    }
             messContainer.appendChild(img2);
-            messContainer.appendChild(textP);
-            textP.appendChild(text);
+           
+            
             messContainer.appendChild(timeP);
             timeP.appendChild(time);
             
@@ -77,18 +80,18 @@ function submit(){
         MessageBoard.messages.push(msg);
         p.innerHTML = "Antal meddelanden: " + MessageBoard.messages.length;
         MessageBoard.renderMessages();
-        console.log(MessageBoard.messages);}
+        messageInput.value="";
+    
+}
         
  submitMessage.addEventListener("click", function(e) {
        submit();
+       messageInput.reset();
 });
 
- messageInput.onkeypress = function(e){
+ messageInput.onkeypress = function(e, messageID){
      
-       if(e.shiftKey&&e.keyCode==13){
-           console.log("japp");
-       }
-       else if(e.keyCode==13&&e.shiftKey){
+       if(e.keyCode == 13 && !e.shiftKey){
          submit();
        }
 }
