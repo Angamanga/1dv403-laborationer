@@ -11,7 +11,7 @@ body {
     font-family: Lora, 'Palatino Linotype', Palatino, serif;
 }
 
-.container {
+.board {
     Width: 300px;
     margin: 0 auto;
     text-align: justify;
@@ -55,6 +55,7 @@ body {
      margin:3px;
     outline: 0;
     -webkit-appearance: none;
+    font-size:0.6em;
        }
  div.messages img{
    margin-left:260px;

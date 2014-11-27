@@ -1,0 +1,64 @@
+
+
+window.onload = function() {
+
+    var MessageBoard = {
+        messages: [],
+        init: function(e) {
+            var message = new Message();
+        },
+        renderMessages: function(){
+            document.getElementsByClassName(".messages").innerHTML="";
+            for(var i=0;i<MessageBoard.message.length;++i){
+                MessageBoard.renderMessage(i);
+            }
+        },
+        renderMessage: function(messageID){
+            var container = document.querySelector(".container");
+            var before = document.querySelector(".counter");
+            var messContainer = document.createElement("div"); 
+            messContainer.className = "messages";
+              container.insertBefore(messContainer, before);
+            var text = document.createTextNode(messageID);
+            messContainer.appendChild(text);
+             var img1 = document.createElement("img");
+        img1.className = "showDate";
+        img1.src = "pics/14.png";
+        img1.alt = "visa tid";
+        messContainer.appendChild(img1);
+        
+        var img2 = document.createElement("img");
+        img2.className = "delete";
+        img2.src = "pics/12.png";
+        img2.alt = "radera meddelande";
+        messContainer.appendChild(img2);
+            
+        }
+        
+    };
+    
+    MessageBoard.init(); //ide: om jag kopplar detta pa en knapp istallet, skapas flera boards?
+
+
+    var messageInput = document.querySelector(".messageInput");
+    var submitMessage = document.querySelector(".submitMessage");
+    var messages = document.querySelector(".messages");
+    var p = document.querySelector(".counter")
+
+    submitMessage.addEventListener("click", function(e) {
+        var txt = messageInput.value;
+        var dte = new Date();
+        var msg = new Message(txt, dte);
+        MessageBoard.messages.push(msg);
+        p.innerHTML = "Antal meddelanden: " + MessageBoard.messages.length;
+
+       MessageBoard.renderMessages(txt)
+
+
+    });
+
+    var showDate = document.querySelector(".showDate");
+    showDate.addEventListener("click", function(e) {
+        alert("Inlagget skapades den"); // + this.getDate()); //kolla upp!
+    });
+};
