@@ -1,7 +1,7 @@
 /*@media screen and (min-width: 501px)*/
 body {
     background: #C6C8C5;
-    color: #430F29;
+    color: black;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -9,8 +9,7 @@ body {
     width: 300px;
     margin: 0 auto;
     text-align: center;
-    line-height: 1.8em;
-    margin: 0 auto;
+     margin: 0 auto;
     background: #787878;
     border: 1px solid #ccc;
     -moz-border-radius: 10px;
@@ -30,34 +29,53 @@ body {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    -moz-box-shadow: 2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow: 2px 2px 3px #666;
-     outline: 0;
+    outline: 0;
+    padding-left:5px;
+    padding-right:5px;
     -webkit-appearance: none;
 }
 .messageInput:focus {
     border-color: #430F29;
 }
 .messages{
+    position:relative;
     width:290px;
+    min-height:30px;
      border: 1px #C6C8C5;
      background:white;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    -moz-box-shadow: 2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
-     margin:3px;
+    margin:3px;
     outline: 0;
     -webkit-appearance: none;
     font-size:0.6em;
        }
- div.messages img{
-   margin-left:260px;
+ 
+.text {
+text-align:left;
+padding:0 30px 0 6px;
+margin:0 4px 0 4px;
+}
+.time{
+text-align:right;
+padding:0 6px 6px 0;
+
 }
 
+.showDate{
+    position:absolute;
+    right:6px;
+    top:6px;
+   
+}
 
+.submitDelete{
+position:absolute;
+    right:20px;
+    top:6px;
+    
+}
 .counter{
     font-size:0.7em;
     padding:0;
@@ -78,6 +96,5 @@ text-shadow:none;
 
 }
 .submitMessage:hover{
-    background:#fffdfa;
-    
+    background:#4F504F;
 }
