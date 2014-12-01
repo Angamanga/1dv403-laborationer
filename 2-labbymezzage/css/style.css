@@ -5,7 +5,7 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.board {
+#board1, #board2  {
     width: 300px;
     margin: 0 auto;
     text-align: center;
@@ -19,7 +19,7 @@ body {
     outline: 0;
     -webkit-appearance: none;
 }
-.board h1{
+#board1 h1, #board2 h1{
    font-family: 'Londrina Outline', cursive;
 }
 
@@ -37,7 +37,7 @@ body {
 .messageInput:focus {
     border-color: #430F29;
 }
-.messages{
+.messageboard1, .messageboard2{
     position:relative;
     width:290px;
     min-height:30px;
