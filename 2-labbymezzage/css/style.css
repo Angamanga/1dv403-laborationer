@@ -23,7 +23,7 @@ body {
    font-family: 'Londrina Outline', cursive;
 }
 
-.messageInput {
+.messageInputboard1,.messageInputboard2 {
     width:290px;
     border: 1px solid #ccc;
     -moz-border-radius: 10px;
@@ -34,7 +34,7 @@ body {
     padding-right:5px;
     -webkit-appearance: none;
 }
-.messageInput:focus {
+.messageInputboard1:focus, .messageInputboard2:focus  {
     border-color: #430F29;
 }
 .messageboard1, .messageboard2{
@@ -54,29 +54,35 @@ body {
  
 .text {
 text-align:left;
-padding:0 30px 0 6px;
-margin:0 4px 0 4px;
+padding:17px 54px 0 7px;
+
 }
 .time{
 text-align:right;
-padding:0 6px 6px 0;
+padding:7px 7px 7px 0;
 
-}
-
-.showDate{
-    position:absolute;
-    right:6px;
-    top:6px;
-   
 }
 
 .submitDelete{
+    position:absolute;
+    right:7px;
+    top:7px;
+   
+}
+
+.submitEdit{
 position:absolute;
     right:20px;
-    top:6px;
+    top:7px;
     
 }
-.counter{
+.showDate{
+    position:absolute;
+    right:35px;
+    top:7px;
+}
+
+.counterboard1, .counterboard2{
     font-size:0.7em;
     padding:0;
     margin:0 0 0 185px;

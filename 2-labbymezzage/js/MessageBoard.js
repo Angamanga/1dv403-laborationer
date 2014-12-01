@@ -117,7 +117,7 @@ var MessageBoard = function(boardnb){
                 
         var edit=document.createElement("a");
         edit.setAttribute("src", "#");
-        edit.setAttribute("class","edit");
+        edit.setAttribute("class","submitEdit");
         var img3 = document.createElement("img");
         img3.setAttribute("src","pics/13.png");
         img3.setAttribute("alt","editera meddelande"); 
