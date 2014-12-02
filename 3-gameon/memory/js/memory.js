@@ -15,22 +15,18 @@ var rows = document.createElement("TR");
 for(var j =1;j<=this.cols;j++){
 var cols = document.createElement("TD");
 rows.appendChild(cols);
+var backImage = document.createElement("img");
+backImage.src= "pics/back.png";
+backImage.classname="backImage";
+cols.appendChild(backImage);
 }
 table.appendChild(rows);
 }
 
 
-var backImage = document.createElement("img");
-backImage.src= "pics/back.png";
-backImage.classname="backImage";
-board.appendChild(backImage);
-    
-    
-
-
 }
 
-var mem = new Memory(4,6,"game1");
+var mem = new Memory(8,12,"game1");
 mem.drawBoard();
 
 
