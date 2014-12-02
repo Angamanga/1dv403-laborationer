@@ -1,0 +1,11 @@
+/*@media screen and (max-width: 500px)*/
+body{
+    font-family: 'Mountains of Christmas', cursive;
+    background-color:#E6C79C;
+    color:#143109;
+}
+main{
+    max-width:90%;
+    background-color:#B80C09;
+    margin:auto;
+}

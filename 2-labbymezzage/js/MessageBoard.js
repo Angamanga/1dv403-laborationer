@@ -1,4 +1,4 @@
-//"use strict";
+"use strict";
 
 var MessageBoard = function(boardnb){
     this.boardnb = boardnb;
@@ -14,6 +14,7 @@ var MessageBoard = function(boardnb){
         this.renderMessages();
         this.messageInput.value="";
             };
+            
     //funktion som tar bort ett meddelande        
     this.removeMessage = function(i){
         var a=window.confirm("Vill du verkligen radera meddelandet?");
@@ -21,13 +22,15 @@ var MessageBoard = function(boardnb){
         this.messages.splice(i,1);
         this.renderMessages();
         this.counter.innerHTML = "Antal meddelanden: " + this.messages.length;
-            };};
+            };
+    };
+    
     //funktion som skapar messageboard        
     this.createBoard = function(boardnb){
         //skapar en header i div-taggen dar applikationen ska ligga
         var board = document.getElementById(boardnb);
-        var header = document.createElement("header");
-        var h1 = document.createElement("h1");
+        var header = board.createElement("header");
+        var h1 = board.createElement("h1");
         h1.innerHTML = "Labby Mezzage";
         board.appendChild(header);
         header.appendChild(h1);
@@ -71,6 +74,7 @@ var MessageBoard = function(boardnb){
                     this.renderMessage(i);
                     console.log(this.messages[i].getText());
                 }};
+                
     this.renderMessage = function(messageID){
          //skapar div for ett meddelande med classname "messContainer"
         var container = document.querySelector(".container"+boardnb);
@@ -114,7 +118,7 @@ var MessageBoard = function(boardnb){
         img2.onclick = function(messageID){
         that.removeMessage(messageID);
                 }
-                
+        //gor en lank och lagger till en bild for editering av meddelanden
         var edit=document.createElement("a");
         edit.setAttribute("src", "#");
         edit.setAttribute("class","submitEdit");
@@ -123,16 +127,16 @@ var MessageBoard = function(boardnb){
         img3.setAttribute("alt","editera meddelande"); 
         messContainer.appendChild(edit);
         edit.appendChild(img3);
-        //onclick-event som raderar ett meddelande
+        //onclick-event som editerar ett meddelande
         img3.onclick = function(){
         var textbox = document.querySelector(".messageInput"+boardnb);
         textbox.value = that.messages[messageID].getHTMLtext();
-         //skapar en andra
+         //skapar en andraknapp
         var changeButton = document.createElement("input");
         changeButton.type = "button";
         changeButton.value = "ändra";
         changeButton.className = "submitMessage";
-        //skapar en eventlyssnare som skapar ett meddelande (anropar funktionen submit) da anvandaren trycker pa skrivknappen med musknappen
+        //skapar en eventlyssnare som skriven in den nya texten i ratt plats i arrayen mha metoden setText. 
         changeButton.onclick = function(e){
             that.messages[messageID].setText(textbox.value);
             textbox.value = "";
