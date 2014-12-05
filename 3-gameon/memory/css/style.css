@@ -11,7 +11,9 @@ main{
     margin:auto;
     text-align:center;
 }
-table, th, td {
-   border: 1px solid black;
-   margin:auto;
+#game1, #game2{
+    border: 1px dotted grey;
 }
+/*#game1, #game2 > div{*/
+/*    background: url(/pics/back.jpg) no-repeat;*/
+/*}*/

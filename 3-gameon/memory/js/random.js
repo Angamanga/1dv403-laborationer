@@ -1,4 +1,4 @@
-window.onload=console.log('random.js');
+
 var RandomGenerator = {
 	
 	/*
