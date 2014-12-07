@@ -12,8 +12,17 @@ main{
     text-align:center;
 }
 #game1, #game2{
+    width:400px;
+    height:400px;
+    margin:0 auto;
     border: 1px dotted grey;
 }
+#game1 > div, #game2>div{
+    float:left;
+    width:70px;
+    height:70px
+}
+
 /*#game1, #game2 > div{*/
 /*    background: url(/pics/back.jpg) no-repeat;*/
 /*}*/
