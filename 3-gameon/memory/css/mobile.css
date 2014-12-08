@@ -1,6 +1,6 @@
 /*@media screen and (max-width: 500px)*/
 body{
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: 'Raleway', sans-serif;
     background-color:#E6C79C;
     color:#143109;
 }
@@ -9,4 +9,21 @@ main{
     background-color:#B80C09;
     margin:auto;
     text-align:center;
+}
+main h1{
+    font-family: 'Mountains of Christmas', cursive;
+}
+#game1, #game2{
+    background:#003380;
+    overflow:hidden;
+    -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
+    -moz-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
+    box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
+    margin:0 auto;
+   margin-bottom:20px;
+}
+#game1 > div, #game2>div{
+    float:left;
+    width:75px;
+    height:75px
 }
