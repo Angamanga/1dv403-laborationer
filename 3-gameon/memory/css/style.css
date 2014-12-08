@@ -1,26 +1,38 @@
 /*@media screen and (min-width: 501px)*/
 body{
     font-family: 'Mountains of Christmas', cursive;
+    background:url(christmassy.png);
     background-color:#E6C79C;
     color:#B80C09;
 }
 
 main{
     max-width:960px;
-    background-color:#143109;
+  
     margin:auto;
     text-align:center;
 }
-#game1, #game2{
-    width:400px;
-    height:400px;
+#game1{
+    background:#2e4a9e;
+    overflow:hidden;
+-webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
+-moz-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
+box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
+    margin:20px;
+    margin:0 auto;
+   
+    
+}
+
+#game2{
+    
     margin:0 auto;
     border: 1px dotted grey;
 }
 #game1 > div, #game2>div{
     float:left;
-    width:70px;
-    height:70px
+    width:75px;
+    height:75px
 }
 
 /*#game1, #game2 > div{*/

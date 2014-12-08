@@ -53,6 +53,8 @@ Memory.prototype.flipBrick = function(n, backImage) {
 
 Memory.prototype.addBricks = function(n) {
     var memBoard = document.getElementById(this.gameID);
+    memBoard.style.width=(this.cols*75+"px");
+    memBoard.style.height=(this.rows*75+"px");
     var a = document.createElement("a");
     var backImage = document.createElement("img");
     var div = document.createElement("div");
