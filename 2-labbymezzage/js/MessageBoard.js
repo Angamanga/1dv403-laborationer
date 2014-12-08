@@ -90,7 +90,7 @@ var MessageBoard = function(boardnb){
          //skapar div for ett meddelande med classname "messContainer"
         var container = document.querySelector(".container");
         var messContainer = document.createElement("div"); 
-        messContainer.className = "message"+this.boardnb;
+        messContainer.className = "message";
         container.appendChild(messContainer);
          //skapar en p-tagg som ska innahalla texten
         var textP = document.createElement("p");
@@ -106,7 +106,7 @@ var MessageBoard = function(boardnb){
         //Skapar en lank och lagger till en bild som ska visa datum som en alertbox da man klickar pa bilden
         var linkTime=document.createElement("a");
         linkTime.setAttribute("src", "#");
-        linkTime.setAttribute("class","showDate")
+        linkTime.setAttribute("class","showDate");
         var img1 = document.createElement("img");
         img1.setAttribute("src","pics/14.png");
         img1.setAttribute("alt","visa tid");
@@ -127,8 +127,8 @@ var MessageBoard = function(boardnb){
         linkDelete.appendChild(img2);
         //onclick-event som raderar ett meddelande
         img2.onclick = function(messageID){
-        that.removeMessage(messageID);
-                }
+        this.removeMessage(messageID);
+                }.bind(this)
         //gor en lank och lagger till en bild for editering av meddelanden
         var edit=document.createElement("a");
         edit.setAttribute("src", "#");
@@ -140,8 +140,8 @@ var MessageBoard = function(boardnb){
         edit.appendChild(img3);
         //onclick-event som editerar ett meddelande
         img3.onclick = function(){
-        var textbox = document.querySelector(".messageInput"+this.boardnb);
-        textbox.value = that.messages[messageID].getHTMLtext();
+        var textbox = document.querySelector(".messageInput");
+        textbox.value = this.messages[messageID].getHTMLtext();
          //skapar en andraknapp
         var changeButton = document.createElement("input");
         changeButton.type = "button";
@@ -149,18 +149,18 @@ var MessageBoard = function(boardnb){
         changeButton.className = "submitMessage";
         //skapar en eventlyssnare som skriven in den nya texten i ratt plats i arrayen mha metoden setText. 
         changeButton.onclick = function(e){
-            that.messages[messageID].setText(textbox.value);
+            this.messages[messageID].setText(textbox.value);
             textbox.value = "";
-            that.renderMessages();
+            this.renderMessages();
             board.removeChild(changeButton);
             return false;
-        }
+        }.bind(this);
         var board = document.getElementById(this.boardnb);
         board.appendChild(changeButton);
-                }
+                }.bind(this);
               };
        
     
      MessageBoard.prototype.init = function(){
-     MessageBoard.createBoard();
+     this.createBoard();
          };

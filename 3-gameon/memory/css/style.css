@@ -1,9 +1,9 @@
 /*@media screen and (min-width: 501px)*/
 body{
-     font-family: 'Raleway', sans-serif;
+   font-family: 'Arvo', serif;
     background:url(christmassy.png);
     background-color:#E6C79C;
-    color:#B80C09;
+    color:white;
 }
 main{
     max-width:960px;
@@ -12,9 +12,10 @@ main{
 }
 main h1 {
      font-family: 'Mountains of Christmas', cursive;
+       color:#B80C09;
 }
 main a, main a:visited{
-    color:#B80C09;
+color:white;
 }
 #game1, #game2{
     background:#003380;
@@ -22,11 +23,18 @@ main a, main a:visited{
     -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
     -moz-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
     box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
-    margin:20px;
     margin:0 auto;
+    padding:10px;
 }
 #game1 > div, #game2>div{
     float:left;
     width:75px;
     height:75px
+}
+footer{
+    font-size:0.9em;
+    
+      max-width:960px;
+    
+ margin:auto;
 }
