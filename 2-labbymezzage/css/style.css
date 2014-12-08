@@ -30,7 +30,7 @@ main{
 #board2 {
     float:right;
 }
-.messageInputboard1,.messageInputboard2 {
+.messageInput {
     width:290px;
     border: 1px solid #ccc;
     -moz-border-radius: 10px;
@@ -40,10 +40,10 @@ main{
     padding-right:5px;
     -webkit-appearance: none;
 }
-.messageInputboard1:focus, .messageInputboard2:focus  {
+.messageInput:focus{
     border-color: #430F29;
 }
-.messageboard1, .messageboard2{
+.message{
     position:relative;
     width:290px;
     min-height:30px;

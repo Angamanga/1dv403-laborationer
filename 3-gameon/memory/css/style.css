@@ -13,6 +13,9 @@ main{
 main h1 {
      font-family: 'Mountains of Christmas', cursive;
 }
+main a, main a:visited{
+    color:#B80C09;
+}
 #game1, #game2{
     background:#003380;
     overflow:hidden;

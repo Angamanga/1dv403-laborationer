@@ -2,21 +2,71 @@
 
 var MessageBoard = function(boardnb){
     this.boardnb = boardnb;
-    var that = this;
     this.messages = [];
-   
-    //funktion som skapar ett meddelande fran text skriven i textarean
-    this.submit = function(){
-        var txt = that.messageInput.value;
+};
+
+//funktion som skapar ett meddelande fran text skriven i textarean
+    MessageBoard.prototype.submit = function(){
+        var txt = document.querySelector(".messageInput").value;
         var msg = new Message(txt, new Date());
         this.messages.push(msg);
         this.counter.innerHTML = "Antal meddelanden: " + this.messages.length;
         this.renderMessages();
         this.messageInput.value="";
             };
+
+ //funktion som skapar messageboard        
+   MessageBoard.prototype.createBoard = function(){
+        
+        //skapar en header i div-taggen dar applikationen ska ligga
+        var board = document.getElementById(this.boardnb);
+        var header = document.createElement("header");
+        var h1 = document.createElement("h1");
+        h1.innerHTML = "Labby Mezzage";
+        board.appendChild(header);
+        header.appendChild(h1);
+    //skapar en div att lagga meddelanden i
+    var container = document.createElement("div");
+        container.className = "container";
+        board.appendChild(container);
+    //skapar en plats for raknaren
+   
+        this.counter =  document.createElement("p");
+        this.counter.className = "counter";
+        board.appendChild(this.counter);
+        
+     //skapar en textarea att skriva meddelandet i
+   var textarea = document.createElement("textarea");
+    textarea.className = "messageInput";
+     board.appendChild(textarea);
+     //skapar en eventlyssnare som skapar ett meddelande (anropar funktionen submit) da anvandaren trycker pa enter och radbrytning da anvandaren trycker pa shift-enter
+        textarea.onkeydown = function(e){
+        if(e.keyCode == 13 && !e.shiftKey){
+               this.submit();
+               return false;
+         }}.bind(this);
+         
+         this.messageInput = document.querySelector(".messageInput");
+ 
+         //skapar en skrivknapp
+        var inputButton = document.createElement("input");
+        inputButton.type = "button";
+        inputButton.value = "skriv";
+        inputButton.className = "submitMessage";
+        board.appendChild(inputButton);
+    //skapar en eventlyssnare som skapar ett meddelande (anropar funktionen submit) da anvandaren trycker pa skrivknappen med musknappen
+         inputButton.onclick = function(e){
+         this.submit(); 
+          return false;
+         }.bind(this);
+        
+         };
+
+
+    
             
     //funktion som tar bort ett meddelande        
-    this.removeMessage = function(i){
+    MessageBoard.prototype.removeMessage = function(i){
         var a=window.confirm("Vill du verkligen radera meddelandet?");
                 if(a===true){                   
         this.messages.splice(i,1);
@@ -25,61 +75,22 @@ var MessageBoard = function(boardnb){
             };
     };
     
-    //funktion som skapar messageboard        
-    this.createBoard = function(boardnb){
-        //skapar en header i div-taggen dar applikationen ska ligga
-        var board = document.getElementById(boardnb);
-        var header = board.createElement("header");
-        var h1 = board.createElement("h1");
-        h1.innerHTML = "Labby Mezzage";
-        board.appendChild(header);
-        header.appendChild(h1);
-        //skapar en div att lagga meddelanden i
-        var container = document.createElement("div");
-        container.className = "container"+boardnb;
-        board.appendChild(container);
-        //skapar en plats for raknaren
-        this.counter =  document.createElement("p");
-        this.counter.className = "counter"+boardnb;
-        board.appendChild(this.counter);
-        //skapar en textarea att skriva meddelandet i
-        var textarea = document.createElement("textarea");
-        textarea.className = "messageInput"+boardnb;
-        //skapar en eventlyssnare som skapar ett meddelande (anropar funktionen submit) da anvandaren trycker pa enter och radbrytning da anvandaren trycker pa shift-enter
-        textarea.onkeydown = function(e){
-             if(e.keyCode == 13 && !e.shiftKey){
-              that.submit();
-              return false;
-        }};
-        board.appendChild(textarea);
-        this.messageInput = document.querySelector(".messageInput"+boardnb);
-        //skapar en skrivknapp
-        var inputButton = document.createElement("input");
-        inputButton.type = "button";
-        inputButton.value = "skriv";
-        inputButton.className = "submitMessage";
-        //skapar en eventlyssnare som skapar ett meddelande (anropar funktionen submit) da anvandaren trycker pa skrivknappen med musknappen
-        inputButton.onclick = function(e){
-            that.submit(); 
-            return false;
-        }
-        board.appendChild(inputButton);
-        };
+   
          
        
     //funktion som tar bort alla meddelanden och sedan lagger till dom igen        
-    this.renderMessages = function(){
-                document.querySelector(".container"+boardnb).innerHTML="";
+    MessageBoard.prototype.renderMessages = function(){
+                document.querySelector(".container").innerHTML="";
                 for(var i=0;i<this.messages.length;++i){
                     this.renderMessage(i);
                     console.log(this.messages[i].getText());
                 }};
                 
-    this.renderMessage = function(messageID){
+    MessageBoard.prototype.renderMessage = function(messageID){
          //skapar div for ett meddelande med classname "messContainer"
-        var container = document.querySelector(".container"+boardnb);
+        var container = document.querySelector(".container");
         var messContainer = document.createElement("div"); 
-        messContainer.className = "message"+boardnb;
+        messContainer.className = "message"+this.boardnb;
         container.appendChild(messContainer);
          //skapar en p-tagg som ska innahalla texten
         var textP = document.createElement("p");
@@ -129,7 +140,7 @@ var MessageBoard = function(boardnb){
         edit.appendChild(img3);
         //onclick-event som editerar ett meddelande
         img3.onclick = function(){
-        var textbox = document.querySelector(".messageInput"+boardnb);
+        var textbox = document.querySelector(".messageInput"+this.boardnb);
         textbox.value = that.messages[messageID].getHTMLtext();
          //skapar en andraknapp
         var changeButton = document.createElement("input");
@@ -144,15 +155,12 @@ var MessageBoard = function(boardnb){
             board.removeChild(changeButton);
             return false;
         }
-        var board = document.getElementById(boardnb);
+        var board = document.getElementById(this.boardnb);
         board.appendChild(changeButton);
                 }
               };
        
     
-     this.init = function(){
-     this.createBoard(boardnb);
-     
-         }
-
-}
+     MessageBoard.prototype.init = function(){
+     MessageBoard.createBoard();
+         };

@@ -11,22 +11,22 @@ var Memory = function(rows, cols, gameID) {
     this.nbCorrectGuesses = 0; //räknar hur många rätta gissningar användaren gjort
     this.classID; //håller koll på föregående brickas klass för att kunna lägga tillbaka bakgrundsbilden då båda brickorna vänts upp
     this.nbGuesses = 0; //håller koll på antal gjorda försök
-
 };
 
 //funktion för att vända en bricka
 Memory.prototype.flipBrick = function(n) {
-        if (this.counter === 0) {
-            this.flippedBricks.push(this.bricks[n].getBrickID());
-            this.classID = n;
-            return this.bricks[n].getBrickSrc();
-        }
-        else if (this.counter === 1) {
-            this.flippedBricks.push(this.bricks[n].getBrickID());
-            return this.bricks[n].getBrickSrc();
-        }
-    };
-    //ritar upp memorybordet
+    if (this.counter === 0) {
+        this.flippedBricks.push(this.bricks[n].getBrickID());
+        this.classID = n;
+        return this.bricks[n].getBrickSrc();
+    }
+    else if (this.counter === 1) {
+        this.flippedBricks.push(this.bricks[n].getBrickID());
+        return this.bricks[n].getBrickSrc();
+    }
+};
+
+//ritar upp memorybordet
 Memory.prototype.addBricks = function(n) {
     var memBoard = document.getElementById(this.gameID); //letar reda på rätt div
     var a = document.createElement("a"); //variabel för att skapa en länk
@@ -57,7 +57,6 @@ Memory.prototype.addBricks = function(n) {
                 if (this.nbCorrectGuesses === this.bricks.length) {
                     while (memBoard.hasChildNodes()) {
                         memBoard.removeChild(memBoard.lastChild);
-                       
                     }
                     var p = document.createElement("p");
                     p.innerHTML = "Grattis! Du klarade spelet på " + this.nbGuesses + " gissningar! Vill du starta ett nytt spel?";

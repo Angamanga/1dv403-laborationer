@@ -6,7 +6,7 @@ function Brick(id){
 	};
 	this.getBrickSrc= function(){
 		return "pics/" + id +".png";
-	}
+	};
 	
 
 	}
