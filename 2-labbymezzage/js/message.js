@@ -6,7 +6,11 @@ function Message(message, date){
 		return message;
 	}
 	this.setText = function(_text){
+<<<<<<< HEAD
 		message = _text;					//eventuellt _text??
+=======
+		message = _text;					
+>>>>>>> 39a487fbe35c24f79c815f848ad07948e3f875f2
 	}
 
 	this.getDate = function(){
@@ -17,6 +21,7 @@ function Message(message, date){
 	}
 }
 
+<<<<<<< HEAD
 Message.prototype.toString = function(first_argument) {
 	// body...
 };
@@ -34,4 +39,12 @@ Message.prototype.setDate = function(first_argument) {
 };
 Message.prototype.getHTMLtext = function(first_argument) {
 	// body...
+=======
+Message.prototype.toString = function() {
+	return this.getText() + " (" + this.getDate() + " )";
+};
+
+Message.prototype.getHTMLtext = function() {
+			return this.getText().replace(/\n/g, " <br> ");
+>>>>>>> 39a487fbe35c24f79c815f848ad07948e3f875f2
 };

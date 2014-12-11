@@ -37,7 +37,7 @@ window.onload = function(){
 		nB=birthday.setFullYear(a);
 		nextBirthday = new Date(nB);
 		msToBirthday= nextBirthday.getTime() - today.getTime(); 
-		days=math.ceil(msToBirthday/86400000);
+		days=Math.ceil(msToBirthday/86400000);
 	
 		return days;//returnerar dagar kvar till nasta fodelsedag
 	}

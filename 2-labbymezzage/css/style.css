@@ -1,0 +1,103 @@
+/*@media screen and (min-width: 501px)*/
+body {
+    background: #C6C8C5;
+    color: #430F29;
+    font-family: 'Raleway', sans-serif;
+}
+main{
+    max-width: 632px;
+    margin:0 auto;
+}
+#board1, #board2  {
+    width: 300px;
+    text-align: center;
+    background: #787878;
+    color:black;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 4px 7px;
+    -webkit-appearance: none;
+}
+#board1 h1, #board2 h1{
+   font-family: 'Londrina Outline', cursive;
+   color: #430F29;
+}
+#board1 {
+    float:left;
+}
+#board2 {
+    float:right;
+}
+.messageInput {
+    width:290px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding-left:5px;
+    padding-right:5px;
+    -webkit-appearance: none;
+}
+.messageInput:focus{
+    border-color: #430F29;
+}
+.message{
+    position:relative;
+    width:290px;
+    min-height:30px;
+     border: 1px #C6C8C5;
+     background:white;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin:3px;
+    outline: 0;
+    -webkit-appearance: none;
+    font-size:0.6em;
+       }
+.text {
+text-align:left;
+padding:17px 54px 0 7px;
+}
+.time{
+text-align:right;
+padding:7px 7px 7px 0;
+}
+.submitDelete{
+    position:absolute;
+    right:7px;
+    top:7px;
+}
+.submitEdit{
+position:absolute;
+    right:20px;
+    top:7px;
+}
+.showDate{
+    position:absolute;
+    right:35px;
+    top:7px;
+}
+.counterboard1, .counterboard2{
+    font-size:0.7em;
+    padding:0;
+    margin:0 0 0 185px;
+}
+.submitMessage{
+background:#C6C8C5;
+color:#430F29;
+text-shadow:none;
+border-radius:200px;
+font-size:14px;
+padding:10px 70px;
+text-transform:uppercase;
+border:0;
+box-shadow: none;
+text-shadow:none;
+
+}
+.submitMessage:hover{
+    background:#4F504F;
+}

@@ -9,7 +9,7 @@ window.onload = function(){
 		count++; //Räknare för antalet gissningar.
 		
 		//If sats som kontrollerar gissningen mot secret number och returnerar en array innehållande ett booleanvärde och ett meddelande till användaren.
-		if(number<0&&number>100){
+		if(number<0||number>100){
 			return [false, "Talet är utanför intervallet 0 - 100"];
 		}
 		else if(number<secret){
