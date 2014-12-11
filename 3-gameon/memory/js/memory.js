@@ -44,55 +44,68 @@ Memory.prototype.addBricks = function(n) {
 
     //klickevent för att vända brickorna och göra kontroller beroende på hur många brickor som vänts upp, hur många som är rätt osv.
     a.onclick = function(e) {
-        console.log(this.nbCorrectGuesses);
-        if (this.counter === 0) {
-            backImage.src = this.flipBrick(n);
-            this.counter = 1;
-            this.nbGuesses += 1;
-        }
-        else if (this.counter === 1) {
-            backImage.src = this.flipBrick(n);
-            if (this.flippedBricks[0] === this.flippedBricks[1]) {
-                this.nbCorrectGuesses += 2;
-                if (this.nbCorrectGuesses === this.bricks.length) {
-                    while (memBoard.hasChildNodes()) {
-                        memBoard.removeChild(memBoard.lastChild);
-                    }
-                    var p = document.createElement("p");
-                    p.innerHTML = "Grattis! Du klarade spelet på " + this.nbGuesses + " gissningar! Vill du starta ett nytt spel?";
-                    var newGame = document.createElement("a");
-                    newGame.setAttribute("href", "#");
-                    newGame.innerHTML = "Ja!";
-                    newGame.onclick = function() {
+        e.preventDefault();
+        if (e.target.getAttribute("src") == "pics/back.png") {
+            if (this.counter === 0) {
+                backImage.src = this.flipBrick(n);
+                this.counter = 1;
+                this.nbGuesses += 1;
+            }
+
+            else if (this.counter === 1) {
+                backImage.src = this.flipBrick(n);
+                this.counter = 2;
+                console.log(this.counter);
+                if (this.flippedBricks[0] === this.flippedBricks[1]) {
+                    this.nbCorrectGuesses += 2;
+                    this.counter = 0;
+                    this.flippedBricks = [];
+                    if (this.nbCorrectGuesses === this.bricks.length) {
                         while (memBoard.hasChildNodes()) {
                             memBoard.removeChild(memBoard.lastChild);
                         }
-                        MemoryApp.init();
-                    };
-                    memBoard.appendChild(p);
-                    memBoard.appendChild(newGame);
+                        var p = document.createElement("p");
+                        p.innerHTML = "Grattis! Du klarade spelet på " + this.nbGuesses + " gissningar! Vill du starta ett nytt spel?";
+                        var newGame = document.createElement("a");
+                        newGame.setAttribute("href", "#");
+                        newGame.innerHTML = "Ja!";
+                        newGame.onclick = function() {
+                            while (memBoard.hasChildNodes()) {
+                                memBoard.removeChild(memBoard.lastChild);
+                            }
+                            MemoryApp.init();
+                        };
+                        memBoard.appendChild(p);
+                        memBoard.appendChild(newGame);
+                    }
                 }
+                else if (this.flippedBricks[0] !== this.flippedBricks[1]) {
+                    setTimeout(function() {
+                        backImage.src = "pics/back.png";
+                        var firstBrick = memBoard.getElementsByClassName(this.classID)[0];
+                        firstBrick.src = "pics/back.png";
+                        this.counter = 0;
+                        this.flippedBricks = [];
+                    }.bind(this), 500);
+                }
+
+
             }
-            else {
-                setTimeout(function() {
-                    backImage.src = "pics/back.png";
-                    var firstBrick = memBoard.getElementsByClassName(this.classID)[0];
-                    firstBrick.src = "pics/back.png";
-                }.bind(this), 700);
-            }
-            this.flippedBricks = [];
-            this.counter = 0;
         }
     }.bind(this);
+
+
+
 };
 
 Memory.prototype.start = function() {
+    var i, j;
     //skapar brickor med slumpade id:n och lagger dom i arrayen bricks.
-    for (var i = 0; i < this.order.length; i++) {
+    for (i = 0; i < this.order.length; i++) {
         this.bricks[i] = new Brick(this.order[i]);
     }
     //lagger ut brickorna pa sidan
-    for (var j = 0; j < this.bricks.length; j++) {
+    for (j = 0; j < this.bricks.length; j++) {
         this.addBricks(j);
     }
 };
