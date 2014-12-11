@@ -1,5 +1,7 @@
 "use strict";
 
+//FIXA QUESTIONCOUNTER+addQuestion
+
 window.onload=function(){
 
 var quiz,
@@ -11,9 +13,12 @@ var quiz,
 	responseAnswer,
 	responseText,
 	question,
+	question1,
 	userAnswer,
 	answerInput,
 	answerButton,
+	questionCounter=0,
+	answerCounter=0,
 	div1,
 	div2,
 	div3;
@@ -27,9 +32,12 @@ function init(){
 
 function question(){
 	quiz=new XMLHttpRequest();
+	console.log(questionCounter);
 	quiz.onreadystatechange=function(){
 		if (quiz.readyState===4 && quiz.status===200){
 			quizResponse = JSON.parse(quiz.responseText);
+			questionCounter++;
+			console.log(questionCounter);
 		}
 	}
 	if(questionAddress===undefined){
@@ -47,10 +55,10 @@ function createDiv(){
 };
 
 function drawQuestionBoard(){
-	question=document.querySelector(".question");
-	question.innerHTML=quizResponse.question;
+	question1=document.querySelector(".question");
+	question1.innerHTML=quizResponse.question+questionCounter;
 	div1=createDiv();
-	question.appendChild(div1);
+	question1.appendChild(div1);
 	answerInput=div1.appendChild(document.createElement("textarea"));
 	answerButton=document.createElement("input");
 	answerButton.type = "button";
@@ -64,10 +72,20 @@ function drawQuestionBoard(){
 function getAnswer(){
 	answerButton.onclick = function(e){
 	userAnswer=answerInput.value;
-	console.log(userAnswer);
+	answerCounter++;
 	sendAnswer();
 	}	
 };
+
+function showError(){
+	div3=createDiv();
+	div2.appendChild(div3);
+	div3.innerHTML="Du svarade fel, forsok igen!";
+};
+function addQuestion(questionCounter,answerCounter){
+console.log(questionCounter);
+console.log(answerCounter);
+}
 
 function sendAnswer(){
 	answerAddress=quizResponse.nextURL;
@@ -76,7 +94,14 @@ function sendAnswer(){
 	answer.onreadystatechange=function(){
 		if (answer.readyState===4 && answer.status===200){
 			responseAnswer=JSON.parse(answer.responseText);
-			}
+			init();
+			addQuestion(questionCounter,answerCounter);
+			answerCounter=0;
+		}
+		else if(answer.readyState===4&&answer.status===400){
+			showError();
+		}
+
 		};
 	answerText={
 		answer:userAnswer
@@ -84,8 +109,9 @@ function sendAnswer(){
 	answer.open('POST', answerAddress, true);
 	answer.setRequestHeader('Content-Type', 'application/json');
 	answer.send(JSON.stringify(answerText));
-	init();
+
 };
+
 
 
 
