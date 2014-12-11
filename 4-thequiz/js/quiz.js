@@ -1,6 +1,6 @@
 "use strict";
 
-//FIXA QUESTIONCOUNTER+addQuestion
+//skriv klart writeResults
 
 window.onload=function(){
 
@@ -19,32 +19,39 @@ var quiz,
 	answerButton,
 	questionCounter=0,
 	answerCounter=0,
+	answerArray=[],
 	div1,
 	div2,
-	div3;
+	div3,
+	i,
+	list;
 
 
 function init(){
+	questionCounter++;
 	question();
 	drawQuestionBoard();
 	getAnswer();
+	writeResults();
 };
 
 function question(){
 	quiz=new XMLHttpRequest();
-	console.log(questionCounter);
 	quiz.onreadystatechange=function(){
 		if (quiz.readyState===4 && quiz.status===200){
 			quizResponse = JSON.parse(quiz.responseText);
-			questionCounter++;
-			console.log(questionCounter);
 		}
 	}
 	if(questionAddress===undefined){
 		questionAddress="http://vhost3.lnu.se:20080/question/1";
+
+	}
+	else if(responseAnswer.nextURL){
+		questionAddress=responseAnswer.nextURL;
+
 	}
 	else{
-		questionAddress=responseAnswer.nextURL;
+		writeResults();
 	}
 	quiz.open("GET", questionAddress, false);
 	quiz.send(null);	
@@ -67,10 +74,15 @@ function drawQuestionBoard(){
 	div2=createDiv();
 	div1.appendChild(div2);
 	div2.appendChild(answerButton);
+	div3=createDiv();
+	div2.appendChild(div3);
+	div3.innerHTML="";
+	div3.setAttribute("class","hej");22
 	};
 
 function getAnswer(){
 	answerButton.onclick = function(e){
+	div3.innerHTML="";
 	userAnswer=answerInput.value;
 	answerCounter++;
 	sendAnswer();
@@ -78,13 +90,14 @@ function getAnswer(){
 };
 
 function showError(){
-	div3=createDiv();
-	div2.appendChild(div3);
+	
 	div3.innerHTML="Du svarade fel, forsok igen!";
 };
 function addQuestion(questionCounter,answerCounter){
-console.log(questionCounter);
-console.log(answerCounter);
+answerArray.push(new AnswerCount(questionCounter, answerCounter));
+console.log(answerArray);
+console.log(answerArray[0].nbGuess);
+console.log(answerArray[0].questionnb);
 }
 
 function sendAnswer(){
@@ -94,8 +107,8 @@ function sendAnswer(){
 	answer.onreadystatechange=function(){
 		if (answer.readyState===4 && answer.status===200){
 			responseAnswer=JSON.parse(answer.responseText);
-			init();
 			addQuestion(questionCounter,answerCounter);
+			init();
 			answerCounter=0;
 		}
 		else if(answer.readyState===4&&answer.status===400){
@@ -109,8 +122,16 @@ function sendAnswer(){
 	answer.open('POST', answerAddress, true);
 	answer.setRequestHeader('Content-Type', 'application/json');
 	answer.send(JSON.stringify(answerText));
-
 };
+
+
+function writeResults(){
+	for(i=0;i<answerArray.length;i++){
+	list=document.createElement("li");
+	div1.appendChild(list);
+	list.innerHTML="Antal gissningar pa fraga"+answerArray[i].questionnb+": "+answerArray[i].nbGuess;
+	}
+	}
 
 
 
