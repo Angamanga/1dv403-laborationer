@@ -1,9 +1,6 @@
 "use strict";
 
-//skriv klart writeResults
-
 window.onload=function(){
-
 var quiz,
 	questionAddress,
 	answerAddress,
@@ -26,13 +23,11 @@ var quiz,
 	i,
 	list;
 
-
 function init(){
 	questionCounter++;
 	question();
 	drawQuestionBoard();
 	getAnswer();
-	writeResults();
 };
 
 function question(){
@@ -40,30 +35,26 @@ function question(){
 	quiz.onreadystatechange=function(){
 		if (quiz.readyState===4 && quiz.status===200){
 			quizResponse = JSON.parse(quiz.responseText);
+			}
 		}
-	}
-	if(questionAddress===undefined){
-		questionAddress="http://vhost3.lnu.se:20080/question/1";
-
-	}
-	else if(responseAnswer.nextURL){
-		questionAddress=responseAnswer.nextURL;
-
-	}
-	else{
-		writeResults();
-	}
-	quiz.open("GET", questionAddress, false);
-	quiz.send(null);	
+		if(questionAddress===undefined||responseAnswer.hasOwnProperty('nextURL')){
+			if(questionAddress===undefined){
+				questionAddress="http://vhost3.lnu.se:20080/question/1";
+				}
+			else if(responseAnswer.hasOwnProperty('nextURL')){
+				questionAddress=responseAnswer.nextURL;
+			}
+			quiz.open("GET", questionAddress, false);
+			quiz.send(null);	
+		}
+		else{
+			writeResults();
+		}
 	};
-
-function createDiv(){
-	return document.createElement("div");
-};
 
 function drawQuestionBoard(){
 	question1=document.querySelector(".question");
-	question1.innerHTML=quizResponse.question+questionCounter;
+	question1.innerHTML=quizResponse.question;
 	div1=createDiv();
 	question1.appendChild(div1);
 	answerInput=div1.appendChild(document.createElement("textarea"));
@@ -77,8 +68,11 @@ function drawQuestionBoard(){
 	div3=createDiv();
 	div2.appendChild(div3);
 	div3.innerHTML="";
-	div3.setAttribute("class","hej");22
 	};
+
+function createDiv(){
+	return document.createElement("div");
+};
 
 function getAnswer(){
 	answerButton.onclick = function(e){
@@ -89,21 +83,9 @@ function getAnswer(){
 	}	
 };
 
-function showError(){
-	
-	div3.innerHTML="Du svarade fel, forsok igen!";
-};
-function addQuestion(questionCounter,answerCounter){
-answerArray.push(new AnswerCount(questionCounter, answerCounter));
-console.log(answerArray);
-console.log(answerArray[0].nbGuess);
-console.log(answerArray[0].questionnb);
-}
-
 function sendAnswer(){
 	answerAddress=quizResponse.nextURL;
 	answer=new XMLHttpRequest();
-
 	answer.onreadystatechange=function(){
 		if (answer.readyState===4 && answer.status===200){
 			responseAnswer=JSON.parse(answer.responseText);
@@ -114,27 +96,30 @@ function sendAnswer(){
 		else if(answer.readyState===4&&answer.status===400){
 			showError();
 		}
-
-		};
+	};
 	answerText={
 		answer:userAnswer
-	};
+		};
 	answer.open('POST', answerAddress, true);
 	answer.setRequestHeader('Content-Type', 'application/json');
 	answer.send(JSON.stringify(answerText));
 };
 
+function addQuestion(questionCounter,answerCounter){
+	answerArray.push(new AnswerCount(questionCounter, answerCounter));
+};
+
+function showError(){
+	div3.innerHTML="Du svarade fel, forsok igen!";
+};
 
 function writeResults(){
 	for(i=0;i<answerArray.length;i++){
-	list=document.createElement("li");
-	div1.appendChild(list);
-	list.innerHTML="Antal gissningar pa fraga"+answerArray[i].questionnb+": "+answerArray[i].nbGuess;
+		list=document.createElement("li");
+		div1.appendChild(list);
+		list.innerHTML="Antal gissningar pa fraga"+answerArray[i].questionnb+": "+answerArray[i].nbGuess;
+		}
 	}
-	}
-
-
-
 
 init();
 };
