@@ -86,7 +86,7 @@ Memory.prototype.addBricks = function(n) {
                         firstBrick.src = "pics/back.png";
                         this.counter = 0;
                         this.flippedBricks = [];
-                    }.bind(this), 500);
+                    }.bind(this), 700);
                 }
 
 

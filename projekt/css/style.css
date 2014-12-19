@@ -1,0 +1,54 @@
+#container{
+    background:gray;
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+left:0;
+}
+
+#dashboard{
+background:url('../10.jpg');
+width:95%;
+height:80%;
+margin:2.5% auto 1%;
+}
+#dock{
+background:url('../10.jpg');
+width:95%;
+height:8%;
+margin:  auto 2.5% auto;
+}
+
+#imgView{
+    position:absolute;
+     top:50px;
+     left:400px;
+     background:red;
+    border:solid 1 px black;
+}
+#imgView:hover{
+    cursor:move;
+}
+#nextdiv{
+    position:absolute;
+    top:0;
+    left:0;
+    height:20px;
+    width:20px;
+    background:green;
+    
+}
+#imageViewer{
+    position:absolute;
+    top:0;
+    left:0;
+    height:20px;
+    width:20px;
+    background:white;
+    
+}
+.menu{
+    display:inline-block;
+    
+}
