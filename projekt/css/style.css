@@ -1,5 +1,5 @@
 #container{
-    background:gray;
+background:gray;
 position:absolute;
 top:0;
 right:0;
@@ -13,6 +13,7 @@ width:95%;
 height:80%;
 margin:2.5% auto 1%;
 }
+
 #dock{
 background:url('../10.jpg');
 width:95%;
@@ -20,14 +21,14 @@ height:8%;
 margin:  auto 2.5% auto;
 }
 
-#imgView{
+.window{
     position:absolute;
      top:50px;
      left:400px;
      background:red;
     border:solid 1 px black;
 }
-#imgView:hover{
+.window:hover{
     cursor:move;
 }
 #nextdiv{

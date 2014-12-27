@@ -1,5 +1,5 @@
 "use strict";
-
+//skapar skrivbordet
 function MPDB() {
     var container,
         dashboard,
