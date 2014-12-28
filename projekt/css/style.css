@@ -43,7 +43,7 @@ margin:  auto 2.5% auto;
 }
 
 .menu{
-  
+    
     display:inline-block;
     background:#D2D1D2;
     width:100%;
@@ -55,7 +55,21 @@ margin:  auto 2.5% auto;
       float:left;
       margin:4px;
   }
-  
+  .menu:hover {
+      cursor:pointer;
+  }
+
+.imgview .functiondiv{
+    display:block;
+    float:left;
+    background:red;
+}
+
+.imgview .functiondiv > div {
+    display:inline-block;
+    float: left;
+    background:green;
+}
   .imgviewstatus{
       display:inline-block;
       float:left;
@@ -64,13 +78,11 @@ margin:  auto 2.5% auto;
   
   }
   .functiondiv{
-  display:inline-block;
+      display:inline-block;
       float:left;
-      height:10px;
-      background:#A04668;
-      width:100%;
- 
-   }
+     
+    }
+   
   .imgviewstatus  > *{
       display:block;
       float:left;

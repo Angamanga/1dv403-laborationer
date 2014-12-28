@@ -61,4 +61,14 @@ Window.prototype.outline = function(classNm) {
     return false;
     }
 
+//hamtar bilder
+
+  var images=new XMLHttpRequest();
+    images.onreadystatechange=function(){
+    if (images.readyState===4 && images.status===200){
+var	imageArray = JSON.parse(images.responseText);
+}
+    images.open("GET","http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", false);
+    images.send(null);
+};
 };
