@@ -30,19 +30,18 @@ function Draggable(element, dragStart, dragDrop) {
         }
         document.addEventListener('mouseup', dropMe, true);
         document.addEventListener('mousemove', dragMe, true);
-        console.log(event.type);
-        console.log(event.currentTarget);
+     
     };
     this.element.addEventListener('mousedown', move, false);
 };
-var dragStart = function() {
-    this.element.style.width = parseInt(window.getComputedStyle(this.element).width) * 1.3 + "px";
-}
-var dragDrop = function() {
-    this.element.style.width = parseInt(window.getComputedStyle(this.element).width) * (100 / 130) + "px";
-}
+var dragStart = function() {}
+  //  this.element.style.width = parseInt(window.getComputedStyle(this.element).width) * 1.3 + "px";
+//}
+var dragDrop = function() {}
+  //  this.element.style.width = parseInt(window.getComputedStyle(this.element).width) * (100 / 130) + "px";
+//}
 //tester
-var element1 = document.querySelector(".imgview");
+var element1 = document.querySelector(".window");
 //var element2 = document.getElementById("nextdiv");
 // var element3 = document.getElementById("imageViewer");
 var dragObject1 = new Draggable(element1, dragStart, dragDrop);
