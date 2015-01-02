@@ -29,11 +29,12 @@ margin:  auto 2.5% auto;
 }
 
 .window{
-      font-family: 'Quicksand','Josefin Sans';
-    position:absolute;
+    font-family: 'Quicksand','Josefin Sans';
+    position:relative;
     top:80px;
     left:80px;
     width:auto;
+    
     padding:4px;
     background:#8F8892;
       -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
@@ -59,16 +60,19 @@ margin:  auto 2.5% auto;
       cursor:pointer;
   }
 
-.imgview .functiondiv{
+.imgview .appDiv{
     display:block;
     float:left;
     background:red;
+    height:200px;
+    overflow:scroll;
 }
 
-.imgview .functiondiv > div {
+.imgview .appDiv > div {
     display:inline-block;
     float: left;
     background:green;
+    margin:4px;
 }
   .imgviewstatus{
       display:inline-block;
@@ -77,11 +81,12 @@ margin:  auto 2.5% auto;
       width:100%;
   
   }
-  .functiondiv{
-      display:inline-block;
-      float:left;
-     
-    }
+  /* Styles specific to this particular page */
+
+
+ /*.appDiv  > *{*/
+ /*    margin:4px;*/
+ /*}*/
    
   .imgviewstatus  > *{
       display:block;

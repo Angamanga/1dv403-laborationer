@@ -1,35 +1,42 @@
 "use strict";
 //skapar skrivbordet
-function MPDB() {
+function createBoard() {
     var container,
         dashboard,
         dock,
-        icon,
-        menu;
-    function createBoard() {
-        container = document.getElementById("container");
-        dashboard = createDiv(dashboard);
-        dashboard.setAttribute("id", "dashboard");
-        container.appendChild(dashboard);
-        dock = createDiv();
-        dock.setAttribute("id", "dock");
-        container.appendChild(dock);
-    }
-    function createIcon(input,id){
-        icon = createDiv();
-        icon.setAttribute("class", "icon");
-        icon.setAttribute("class",id);
-        icon.style.backgroundImage = "url('pics/iwLarge.png')";
-       icon.style.height="10%"
-        dock.appendChild(icon);
-       
-        }
-    
-    function createDiv() {
-        return document.createElement("div");
-    }
-    createBoard();
-    createIcon("anna", "1");
-};
+        aImgView,
+        iv,
+        imgViewico,
+        counterIv;
+        
+    imgViewico = "pics/iwSmall.png";
 
-window.onload = MPDB();
+    container = document.getElementById("container");
+    dashboard = document.createElement('div');
+    dashboard.setAttribute("id", "dashboard");
+    container.appendChild(dashboard);
+    dock = document.createElement('div');
+    dock.setAttribute("id", "dock");
+    container.appendChild(dock);
+    aImgView = document.createElement("a");
+    aImgView.setAttribute("href","#");
+    iv = document.createElement("img");
+    iv.setAttribute("src", imgViewico);
+    aImgView.appendChild(iv);
+    dock.appendChild(aImgView);
+    counterIv = 0;
+    aImgView.onclick = function(){
+        var a;
+        counterIv +=1;
+        a = new ImageViewer();
+        a.box(counterIv, "imgview");
+        a.addPics();
+        return false;
+    }
+    
+    
+    
+}
+
+
+

@@ -4,71 +4,71 @@ function Window() {
  
 };
 
-
-Window.prototype.outline = function(classNm) {
-    var container, countour, menu, imgMenu,  menuText, imgClose, imgCloseIco, aClose, functionDiv, statusBar, statusText, dashboard, closeDiv;
-    imgCloseIco="pics/beforeClose.png";
+Window.prototype.box = function(classNm1, classNm2) {
+    var dashboard, outline, scrollbar, menu, imgMenu,  menuText, imgClose, imgCloseIco, aClose, appDiv, statusBar, statusText, dashboard, closeDiv, z;
+    imgCloseIco = "pics/beforeClose.png";
+     this.imgIco ="pics/imgView.png";
    
    //huvuddiv
-    countour = document.createElement("div");
-    countour.setAttribute("class", "window "+ classNm);
-    container = document.getElementById("dashboard");
-    container.appendChild(countour);
+    dashboard = document.getElementById("dashboard");
+    outline = document.createElement("div");
+    outline.classList.add("window");
+    outline.classList.add("a"+classNm1);
+    outline.classList.add(classNm2);
+    z = 10;
+    outline.onclick = function(){
+        z +=1;
+        this.bringToTop(outline, z);
+    }.bind(this);
+    dashboard.appendChild(outline);
+    
 
-    //menyrad
-
+  //menyrad
     menu = document.createElement("div");
     menu.setAttribute("class", "menu");
     imgMenu = document.createElement("img");
     imgMenu.setAttribute("src", this.imgIco);
     menuText = document.createElement("p");
     menuText.innerHTML = this.menuTxt;
-    aClose=document.createElement("a");
+    aClose = document.createElement("a");
     aClose.setAttribute("href", "#");
     imgClose = document.createElement("img");
     imgClose.setAttribute("src", imgCloseIco);
-    
-    countour.appendChild(menu);
+    outline.appendChild(menu);
     menu.appendChild(imgMenu);
     menu.appendChild(menuText);
     menu.appendChild(aClose);
     aClose.appendChild(imgClose);
     
-    //här kan ny funktionalitet läggas
-
-    functionDiv = document.createElement("div");
-    functionDiv.setAttribute("class","functiondiv");
-    countour.appendChild(functionDiv);
+    //i denna div kan ny funktionalitet läggas
+    appDiv = document.createElement("div");
+    appDiv.setAttribute("class","appDiv");
+    outline.appendChild(appDiv);
 
     //statusrad
     statusBar = document.createElement("div");
-    statusBar.setAttribute("class", classNm + "status");
+    statusBar.setAttribute("class", "status");
     statusText = document.createElement("p");
     statusText.innerHTML = "statusbar";
-    countour.appendChild(statusBar);
+    outline.appendChild(statusBar);
     statusBar.appendChild(statusText);
 
     //stanger fonstret
     aClose.onmousedown = function(){
-           imgClose.setAttribute("src", "pics/close.png");
-    };
-    
+    imgClose.setAttribute("src", "pics/close.png");
+       };
     aClose.onclick= function(){
-    aClose.removeChild(imgClose);
-    dashboard=document.querySelector("#dashboard");
-    closeDiv=document.querySelector("."+classNm);
+        console.log(classNm1);
+    dashboard = document.querySelector("#dashboard");
+    closeDiv=document.querySelector(".a"+ classNm1);
     dashboard.removeChild(closeDiv);
-    return false;
-    }
-
-//hamtar bilder
-
-  var images=new XMLHttpRequest();
-    images.onreadystatechange=function(){
-    if (images.readyState===4 && images.status===200){
-var	imageArray = JSON.parse(images.responseText);
-}
-    images.open("GET","http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", false);
-    images.send(null);
+       return false;
+       }
 };
+
+Window.prototype.bringToTop = function(element, z) {
+
+    element.style.zIndex = z;
+    console.log(z);
 };
+    
