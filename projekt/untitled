@@ -1,0 +1,32 @@
+function ANNAS(){
+	
+
+myWindow = new Window();
+
+myRSSWindow = new RSSWindow();
+
+
+}
+
+myWindow = new Window();
+
+myRSSWindow = new RSSWindow();
+
+
+
+
+Applikationen fungerar i senaste versionen av Firefox, Internet Explorer eller Chrome.
+□ ES5 Strict mode används.
+□ Det finns ingen JavaScript-kod i .html-dokumentet.
+□ Inga objekt eller variabler, förutom de statiska objekt som används för
+uppgiften är skapade globalt på window-objektet.
+□ Man kan stänga ett fönster genom att klicka på stängknappen.
+□ Min applikation uppfyller i övrigt de krav som är satta enligt beskrivningen
+ovan.
+□ När Ajaxanropet dröjer ska användaren göras uppmärksam på detta. T.ex.
+genom en animerad gif-bild.
+□ Samtliga tumnagelbilders boxar är lika stora och dess storlek räknas
+automatiskt ut med hjälp av de storleksangivelser som tagits emot i JSON-
+strängen.
+□ Förutom funktionskraven är applikationen visuellt tilltalande och ger ett
+proffsigt intryck.

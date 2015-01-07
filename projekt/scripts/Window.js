@@ -5,25 +5,19 @@ function Window() {
 };
 
 Window.prototype.box = function(classNm1, classNm2) {
-    var dashboard, outline, scrollbar, menu, imgMenu,  menuText, imgClose, imgCloseIco, aClose, appDiv, statusBar, statusText, dashboard, closeDiv, z;
+    var dashboard, outline, scrollbar, menu, imgMenu,  menuText, imgClose, imgCloseIco, aClose, appDiv, statusBar, statusText, dashboard, closeDiv;
     imgCloseIco = "pics/beforeClose.png";
-     this.imgIco ="pics/imgView.png";
+    this.imgIco ="pics/imgView.png";
    
-   //huvuddiv
+    //huvuddiv
     dashboard = document.getElementById("dashboard");
     outline = document.createElement("div");
     outline.classList.add("window");
     outline.classList.add("a"+classNm1);
     outline.classList.add(classNm2);
-    z = 10;
-    outline.onclick = function(){
-        z +=1;
-        this.bringToTop(outline, z);
-    }.bind(this);
     dashboard.appendChild(outline);
     
-
-  //menyrad
+    //menyrad
     menu = document.createElement("div");
     menu.setAttribute("class", "menu");
     imgMenu = document.createElement("img");
@@ -57,18 +51,14 @@ Window.prototype.box = function(classNm1, classNm2) {
     aClose.onmousedown = function(){
     imgClose.setAttribute("src", "pics/close.png");
        };
+
     aClose.onclick= function(){
         console.log(classNm1);
-    dashboard = document.querySelector("#dashboard");
-    closeDiv=document.querySelector(".a"+ classNm1);
-    dashboard.removeChild(closeDiv);
-       return false;
+        dashboard = document.querySelector("#dashboard");
+        closeDiv=document.querySelector(".a"+ classNm1);
+        dashboard.removeChild(closeDiv);
+            return false;
        }
 };
 
-Window.prototype.bringToTop = function(element, z) {
-
-    element.style.zIndex = z;
-    console.log(z);
-};
     
