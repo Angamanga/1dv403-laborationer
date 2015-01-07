@@ -11,18 +11,13 @@ ImageViewer.prototype = new Window();
 
 //skapar plats for bilderna
 ImageViewer.prototype.addPics = function() {
-    var outline, images, getImages, imageArray, widthArray, thumbH, thumbW, heightArray, n, appDiv, div, a, imageThumb;
+    var outline, images, getImages, imageArray, widthArray, thumbH, thumbW, heightArray, n, appDiv, div, a, imageThumb, dashboard, dock;
     //hamtar bildinformation
     images = new XMLHttpRequest();
     images.onreadystatechange = function() {
         if (images.readyState === 4 && images.status === 200) {
             imageArray = JSON.parse(images.responseText);
-        }
-    }
-    images.open("GET", "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", false);
-    images.send(null);
-
-    //kontrollerar hojd och langd pa thumsbilerna
+        //kontrollerar hojd och langd pa thumsbilerna
 
     widthArray = imageArray.map(function(imageArray) {
         return imageArray.thumbWidth;
@@ -44,6 +39,14 @@ ImageViewer.prototype.addPics = function() {
         add(n);
     }
 
+            
+            
+        }
+    }
+    images.open("GET", "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", false);
+    images.send(null);
+
+    
     //funktion for att lagga till bilder
     function add(j) {
         outline = document.querySelector(".window");
@@ -56,10 +59,9 @@ ImageViewer.prototype.addPics = function() {
         a.setAttribute("href", "#");
 
         a.onclick = function() {
-            var fullImage = new ImageViewer();
-            fullImage.outline("bigImage");
-            fullImage.bigImage();
-            return false;
+        document.getElementById("dashboard").style.backgroundImage = "url('" + imageArray[j].URL + "')";
+         document.getElementById("dock").style.backgroundImage = "url('" + imageArray[j].URL + "')";
+                   return false;
         };
 
         imageThumb = document.createElement("img");

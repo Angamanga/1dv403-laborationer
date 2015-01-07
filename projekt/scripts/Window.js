@@ -1,3 +1,4 @@
+"use strict";
 //huvudklass som alla andra fönster ska ärva från
 
 function Window() {
