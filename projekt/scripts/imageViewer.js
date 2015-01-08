@@ -6,17 +6,32 @@ function ImageViewer() {
     this.menuTxt = "ImageViewer";
 };
 
+
 //ärver från viewer
 ImageViewer.prototype = new Window();
+ImageViewer.prototype.init = function() {
+  this.box("1", "imgview");
+  this.addPics();
+};
+
+
 
 //skapar plats for bilderna
 ImageViewer.prototype.addPics = function() {
-    var outline, images, getImages, imageArray, widthArray, thumbH, thumbW, heightArray, n, appDiv, div, a, imageThumb, dashboard, dock;
+    var outline, images, getImages, imageArray, widthArray, thumbH, thumbW, heightArray, n, appDiv, div, a, imageThumb, dashboard, dock, statusico;
     //hamtar bildinformation
+    document.querySelector(".status").innerHTML = "Laddar";
+    statusico = document.createElement("img");
+    statusico.setAttribute("src","pics/ajax-loader.gif");
+    document.querySelector(".status").appendChild(statusico);
+    
+    
     images = new XMLHttpRequest();
     images.onreadystatechange = function() {
         if (images.readyState === 4 && images.status === 200) {
             imageArray = JSON.parse(images.responseText);
+            
+    document.querySelector(".status").innerHTML = "Status:Klar";
         //kontrollerar hojd och langd pa thumsbilerna
 
     widthArray = imageArray.map(function(imageArray) {
@@ -43,7 +58,7 @@ ImageViewer.prototype.addPics = function() {
             
         }
     }
-    images.open("GET", "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", false);
+    images.open("GET", "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", true);
     images.send(null);
 
     
@@ -51,7 +66,7 @@ ImageViewer.prototype.addPics = function() {
     function add(j) {
         outline = document.querySelector(".window");
         appDiv = document.querySelector(".appDiv");
-        outline.style.width = (3*thumbW + 9*3 + "px");
+        outline.style.width = (3*thumbW + 11*3 + "px");
         div = document.createElement("div");
         div.style.width = (thumbW + "px");
         div.style.height = (thumbH + "px");

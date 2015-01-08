@@ -26,21 +26,21 @@ function createBoard() {
     dock = document.createElement('div');
     dock.setAttribute("id", "dock");
     container.appendChild(dock);
-
+    var div = document.createElement("div");
+    div.setAttribute("class", "imgViewico");
+    
+    
     aImgView = document.createElement("a");
     aImgView.setAttribute("href","#");
 
-    iv = document.createElement("img");
-    iv.setAttribute("src", imgViewico);
-    
-    aImgView.appendChild(iv);
+    aImgView.appendChild(div);
     dock.appendChild(aImgView);
-    
+
     aImgView.onclick = function(){
         var a;
         a = new ImageViewer();
-        a.box(counterIv, "imgview");
-        a.addPics();
+      
+        a.init();
         return false;
     }
     
