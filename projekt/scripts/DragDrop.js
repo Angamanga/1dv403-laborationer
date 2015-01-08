@@ -1,7 +1,7 @@
-$( init );
- 
-function init() {
-  $('.window').draggable({ cursor: "move", containment: "parent", handle: ".menu"  });
 
+$( init );
+
+function init() {
+ $('.window').draggable();
 }
  

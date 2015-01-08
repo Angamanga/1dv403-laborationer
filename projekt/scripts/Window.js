@@ -1,36 +1,49 @@
 "use strict";
 //huvudklass som alla andra fönster ska ärva från
 
-function Window() {
+DASHBOARD.Window = function(){
  
 };
 
-Window.prototype.box = function(classNm1, classNm2) {
-    var dashboard, outline, scrollbar, menu, imgMenu,  menuText, imgClose, imgCloseIco, aClose, appDiv, statusBar, statusText, dashboard, closeDiv;
+DASHBOARD.Window.prototype.box = function(classNm, id) {
+    var dashboard, 
+        outline, 
+        menu,
+        menuImg,
+        menuText,
+        aClose,
+        imgClose, 
+        imgCloseIco,
+        appDiv,
+        statusBar,
+        closeDiv;
+        
     imgCloseIco = "pics/beforeClose.png";
-    this.imgIco ="pics/imgView.png";
-   
+     
     //huvuddiv
     dashboard = document.getElementById("dashboard");
     outline = document.createElement("div");
     outline.classList.add("window");
-    outline.classList.add("a"+classNm1);
-    outline.classList.add(classNm2);
+    outline.classList.add(classNm);
+    outline.setAttribute("id","a"+id);
     dashboard.appendChild(outline);
     
     //menyrad
     menu = document.createElement("div");
     menu.setAttribute("class", "menu");
-    imgMenu = document.createElement("img");
-    imgMenu.setAttribute("src", this.imgIco);
+    menuImg = document.createElement("img");
+    menuImg.setAttribute("src", this.imgIco);
     menuText = document.createElement("p");
     menuText.innerHTML = this.menuTxt;
+    
     aClose = document.createElement("a");
     aClose.setAttribute("href", "#");
+    
     imgClose = document.createElement("img");
     imgClose.setAttribute("src", imgCloseIco);
+    
     outline.appendChild(menu);
-    menu.appendChild(imgMenu);
+    menu.appendChild(menuImg);
     menu.appendChild(menuText);
     menu.appendChild(aClose);
     aClose.appendChild(imgClose);
@@ -43,23 +56,44 @@ Window.prototype.box = function(classNm1, classNm2) {
     //statusrad
     statusBar = document.createElement("div");
     statusBar.setAttribute("class", "status");
-    statusText = document.createElement("p");
-    statusText.innerHTML = "statusbar";
     outline.appendChild(statusBar);
-    statusBar.appendChild(statusText);
-
+    
     //stanger fonstret
-    aClose.onmousedown = function(){
+    aClose.onmouseover = function(){
     imgClose.setAttribute("src", "pics/close.png");
-       };
+      };
+    
+    aClose.onmouseout = function() {
+    imgClose.setAttribute("src", "pics/beforeClose.png");
+    };
 
     aClose.onclick= function(){
-        console.log(classNm1);
         dashboard = document.querySelector("#dashboard");
-        closeDiv=document.querySelector(".a"+ classNm1);
+        closeDiv=document.getElementById("a" + id);
         dashboard.removeChild(closeDiv);
-            return false;
-       }
+        return false;
+      }
+
+ 
+    
 };
+
+
+window.onload = DASHBOARD.init();
+
+// function(classNm1, classNm2) {
+    
+//      imgCloseIco = "pics/beforeClose.png";
+//      
+  
+  
+    
+   
+   
+ 
+    
+//     //stanger fonstret
+//     
+// };
 
     

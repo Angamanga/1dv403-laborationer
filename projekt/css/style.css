@@ -28,48 +28,48 @@ margin:  auto 2.5% auto;
     box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
 }
 
-.imgViewico{
+#dock .imgView{
     width:32px;
     height:32px;
     background-image:url("/projekt/pics/iwSmall.png");
-    background-repeat:none;
+    background-repeat:no-repeat;
     position:relative;
     left:3px;
     bottom: -3px;
-    z-index: 100;
-    
 }
+
 .imgViewico:hover{
-     width:64px;
+    width:64px;
     height:64px;
-     background-image:url("/projekt/pics/iwLarge.png");
-     position:relative;
-     left:3px;
-     bottom:-3px;
-}
+    background-image:url("/projekt/pics/iwLarge.png");
+    }
 
 .window{
     font-family: 'Quicksand','Josefin Sans';
     position:relative;
-    top:30px;
+
     left:3px;
-    width:auto;
-    padding:4px;
+       padding:4px;
     background:#8F8892;
       -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
     -moz-box-shadow: 2px 2px 82px 21px rgba(16,10,38,1);
     box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
  }
+ 
+ .imgView{
+      width:260px;
+  }
 
+.uno{
+    background:red;
+}
 .menu{
     display:inline-block;
     background:#D2D1D2;
     width:100%;
-    padding-bottom:0;
   }
   
   .menu  > * {
-      display:block;
       float:left;
       margin:4px;
   }
@@ -77,53 +77,31 @@ margin:  auto 2.5% auto;
   .menu a{
       float:right;
   }
+  
   .menu:hover {
       cursor:pointer;
   }
   
-  
-  .imgview{
-      width:260px;
-  }
-
-.imgview .appDiv{
-    display:block;
+.imgView .appDiv{
     float:left;
     background:#D2D1D2;
     height:200px;
     overflow:scroll;
+    margin-bottom:4px;
 }
 
-.imgview .appDiv > div {
-    display:inline-block;
+.imgView .appDiv > div {
     border: solid 1px #8F8892;;
     float: left;
     margin:4px;
     background: #F2F2F2;
 }
 
-.imgview .appDiv > div img {
+.imgView .appDiv > div img {
     display:block;
-    margin-left:auto;
-    margin-right:auto;
- 
+    margin:auto;
+ }
+
+.status img{
+   margin: 4px;
 }
-
-  .imgviewstatus{
-      display:inline-block;
-      float:left;
-      background:#D2D1D2;
-      width:100%;
-  }
-  /* Styles specific to this particular page */
-
-
- /*.appDiv  > *{*/
- /*    margin:4px;*/
- /*}*/
-   
-  .imgviewstatus  > *{
-      display:block;
-      float:left;
-      margin:4px;
-  }

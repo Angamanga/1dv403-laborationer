@@ -1,14 +1,4 @@
 "use strict";
-var DASHING =  DASHING || {};
+var DASHBOARD =  DASHBOARD || {};
 
-DASHING.createWindow = DASHING.createWindow || {};
-
-DASHING.init = function(){
-    
-    createBoard();
-    
-    
-}
-
-
-window.onload = DASHING.init();
+window.onload = DASHBOARD.createBoard();
