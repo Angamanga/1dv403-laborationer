@@ -2,13 +2,9 @@
 
 DASHBOARD.ImageViewer = function() {
 
-    var imgIco,
-        menuTxt;
-
-    this.imgIco = "pics/imgView.png";
+      this.imgIco = "pics/imgView.png";
     this.menuTxt = "ImageViewer";
 };
-
 
 //ärver från viewer
 DASHBOARD.ImageViewer.prototype = new DASHBOARD.Window();
@@ -99,7 +95,14 @@ DASHBOARD.ImageViewer.prototype.addPics = function(id) {
         a.appendChild(imageThumb);
     };
 
+};
 
 
-
+DASHBOARD.ImageViewer.prototype.openLarge = function(imgUrl) {
+    
+    var n = new DASHBOARD.ImageViewer();
+    n.box("largeIw");
+    console.log("hej");    
+    
+    
 };

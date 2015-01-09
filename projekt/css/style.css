@@ -15,6 +15,7 @@ margin:2.5% auto 1%;
    -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
     -moz-box-shadow: 2px 2px 82px 21px rgba(16,10,38,1);
     box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
+overflow:initial;
     
 }
 
@@ -28,7 +29,7 @@ margin:  auto 2.5% auto;
     box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
 }
 
-#dock .imgView{
+ .dockimgView{
     width:32px;
     height:32px;
     background-image:url("/projekt/pics/iwSmall.png");
@@ -38,25 +39,41 @@ margin:  auto 2.5% auto;
     bottom: -3px;
 }
 
-.imgViewico:hover{
+ .dockimgView:hover{
     width:64px;
     height:64px;
     background-image:url("/projekt/pics/iwLarge.png");
     }
+    
+.dockmemory{
+    width:32px;
+    height:32px;
+    background-image:url("/projekt/pics/memSmall.png");
+    background-repeat:no-repeat;
+    position:relative;
+    left:10px;
+    bottom: -3px;
+}
+.dockmemory:hover{
+    width:64px;
+    height:64px;
+    background-image:url("/projekt/pics/memLarge.png");
+    }
 
 .window{
     font-family: 'Quicksand','Josefin Sans';
-    position:relative;
-
-    left:3px;
-       padding:4px;
+    
+    padding:4px;
     background:#8F8892;
       -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
     -moz-box-shadow: 2px 2px 82px 21px rgba(16,10,38,1);
     box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
- }
+     }
  
  .imgView{
+     position:absolute;
+    top:40px;
+    left:40px;
       width:260px;
   }
 

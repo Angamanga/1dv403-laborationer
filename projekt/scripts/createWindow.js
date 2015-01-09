@@ -38,26 +38,35 @@ DASHBOARD.addDockIcons = function (){
         a;
     dock = document.getElementById("dock");
     div = document.createElement("div");
-    div.setAttribute("class", appType)
+    div.setAttribute("class", "dock"+appType);
     a = document.createElement("a");
     a.setAttribute("href", "#");
     a.appendChild(div);
     if (appType==="imgView"){
         a.onclick = function(){
-            
             var b;
             counter+=1;
             b = new DASHBOARD.ImageViewer();
             b.box("imgView", counter);
             b.addPics(counter);
+            b.openLarge();
             return false;
-            
-        } 
-}
-dock.appendChild(a);
-        
+        }
     }
+    else if(appType === "memory"){
+            a.onclick = function(){
+                counter+=1;
+                b = new DASHBOARD.Memory();
+                b.box("memory", counter);
+
+            }
+        }
+
+dock.appendChild(a);
+    }
+
 addIcon("imgView");
+addIcon("memory")
 
 }
         

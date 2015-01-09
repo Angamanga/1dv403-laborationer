@@ -10,6 +10,5 @@ DASHBOARD.init = function(){
     DASHBOARD.createDock();
     DASHBOARD.addDockIcons();
 
-    
 }
 

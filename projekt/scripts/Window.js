@@ -5,6 +5,7 @@ DASHBOARD.Window = function(){
  
 };
 
+
 DASHBOARD.Window.prototype.box = function(classNm, id) {
     var dashboard, 
         outline, 
