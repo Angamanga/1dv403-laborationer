@@ -13,4 +13,3 @@ DASHBOARD.init = function() {
     DASHBOARD.addDockIcons();
 }
 
-window.onload = DASHBOARD.init();

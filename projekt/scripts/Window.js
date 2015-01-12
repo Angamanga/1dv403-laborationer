@@ -22,9 +22,7 @@ DASHBOARD.Window.prototype.box = function(classNm, id) {
         appDiv,
         statusBar,
         closeDiv;
-        
-        
-        
+       
     //huvuddiv
     dashboard = document.getElementById("dashboard");
     outline = document.createElement("div");
