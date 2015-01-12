@@ -4,10 +4,10 @@ DASHBOARD.createBoard = function(){
    var container,
         dashboard;
         
-    
     if(document.getElementById("container")){
         container = document.getElementById("container");
     }
+    
     else{
         container = document.createElement("div");
         container.setAttribute("id", "container");
@@ -19,10 +19,7 @@ DASHBOARD.createBoard = function(){
 }
 
 DASHBOARD.createDock = function(){
-    var dock,
-        aImgView,
-        iv,
-        counterIv;
+    var dock;
 
     dock = document.createElement('div');
     dock.setAttribute("id", "dock");
@@ -32,6 +29,7 @@ DASHBOARD.createDock = function(){
 DASHBOARD.addDockIcons = function (){
     
     var counter = 0;
+    //funktion som lagger till ikon till dockan
     function addIcon(appType){
     var dock,
         div,
@@ -42,31 +40,16 @@ DASHBOARD.addDockIcons = function (){
     a = document.createElement("a");
     a.setAttribute("href", "#");
     a.appendChild(div);
-    if (appType==="imgView"){
-        a.onclick = function(){
+    a.onclick = function(){
             var b;
             counter+=1;
             b = new DASHBOARD.ImageViewer();
             b.box("imgView", counter);
             b.addPics(counter);
-            b.openLarge();
             return false;
         }
+    dock.appendChild(a);
     }
-    else if(appType === "memory"){
-            a.onclick = function(){
-                counter+=1;
-                b = new DASHBOARD.Memory();
-                b.box("memory", counter);
-
-            }
-        }
-
-dock.appendChild(a);
-    }
-
 addIcon("imgView");
-addIcon("memory")
-
 }
         

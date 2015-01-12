@@ -1,124 +1,87 @@
-#container{
-background:#8F8892;
-position:absolute;
-top:0;
-right:0;
-bottom:0;
-left:0;
+#container {
+    background: #8F8892;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
-
-#dashboard{
-background:#BC8DA0;
-width:95%;
-height:80%;
-margin:2.5% auto 1%;
-   -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
-    -moz-box-shadow: 2px 2px 82px 21px rgba(16,10,38,1);
-    box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
-overflow:initial;
-    
+#dashboard {
+    background: #BC8DA0;
+    width: 95%;
+    height: 80%;
+    margin: 2.5% auto 1%;
+    -webkit-box-shadow: 3px -2px 82px 21px rgba(16, 10, 38, 1);
+    -moz-box-shadow: 2px 2px 82px 21px rgba(16, 10, 38, 1);
+    box-shadow: 1px 1px 1px 1px rgba(16, 10, 38, 1);
+    overflow: scroll;
 }
-
-#dock{
-background:#BC8DA0;
-width:95%;
-height:37px;
-margin:  auto 2.5% auto;
- -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
-    -moz-box-shadow: 2px 2px 82px 21px rgba(16,10,38,1);
-    box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
+#dock {
+    background: #BC8DA0;
+    width: 95%;
+    height: 37px;
+    margin: auto 2.5% auto;
+    -webkit-box-shadow: 3px -2px 82px 21px rgba(16, 10, 38, 1);
+    -moz-box-shadow: 2px 2px 82px 21px rgba(16, 10, 38, 1);
+    box-shadow: 1px 1px 1px 1px rgba(16, 10, 38, 1);
 }
-
- .dockimgView{
-    width:32px;
-    height:32px;
-    background-image:url("/projekt/pics/iwSmall.png");
-    background-repeat:no-repeat;
-    position:relative;
-    left:3px;
+.dockimgView {
+    width: 32px;
+    height: 32px;
+    background-image: url("/projekt/pics/iwSmall.png");
+    background-repeat: no-repeat;
+    position: relative;
+    left: 3px;
     bottom: -3px;
 }
-
- .dockimgView:hover{
-    width:64px;
-    height:64px;
-    background-image:url("/projekt/pics/iwLarge.png");
-    }
-    
-.dockmemory{
-    width:32px;
-    height:32px;
-    background-image:url("/projekt/pics/memSmall.png");
-    background-repeat:no-repeat;
-    position:relative;
-    left:10px;
-    bottom: -3px;
+.dockimgView:hover {
+    background: #A04668;
+    background-image: url("/projekt/pics/iwSmall.png");
 }
-.dockmemory:hover{
-    width:64px;
-    height:64px;
-    background-image:url("/projekt/pics/memLarge.png");
-    }
-
-.window{
-    font-family: 'Quicksand','Josefin Sans';
-    
-    padding:4px;
-    background:#8F8892;
-      -webkit-box-shadow: 3px -2px 82px 21px rgba(16,10,38,1);
-    -moz-box-shadow: 2px 2px 82px 21px rgba(16,10,38,1);
-    box-shadow: 1px 1px 1px 1px rgba(16,10,38,1);
-     }
- 
- .imgView{
-     position:absolute;
-    top:40px;
-    left:40px;
-      width:260px;
-  }
-
-.uno{
-    background:red;
+.window {
+    font-family: 'Quicksand', 'Josefin Sans';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 4px;
+    background: #8F8892;
+    -webkit-box-shadow: 3px -2px 82px 21px rgba(16, 10, 38, 1);
+    -moz-box-shadow: 2px 2px 82px 21px rgba(16, 10, 38, 1);
+    box-shadow: 1px 1px 1px 1px rgba(16, 10, 38, 1);
 }
-.menu{
-    display:inline-block;
-    background:#D2D1D2;
-    width:100%;
-  }
-  
-  .menu  > * {
-      float:left;
-      margin:4px;
-  }
-  
-  .menu a{
-      float:right;
-  }
-  
-  .menu:hover {
-      cursor:pointer;
-  }
-  
-.imgView .appDiv{
-    float:left;
-    background:#D2D1D2;
-    height:200px;
-    overflow:scroll;
-    margin-bottom:4px;
+.imgView {
+    width: 260px;
 }
-
-.imgView .appDiv > div {
-    border: solid 1px #8F8892;;
+.menu {
+    display: inline-block;
+    background: #D2D1D2;
+    width: 100%;
+}
+.menu > * {
     float: left;
-    margin:4px;
+    margin: 4px;
+}
+.menu a {
+    float: right;
+}
+.imgView .appDiv {
+    float: left;
+    background: #D2D1D2;
+    height: 200px;
+    overflow: scroll;
+    margin-bottom: 4px;
+}
+.imgView .appDiv > div {
+    border: solid 1px #8F8892;
+    ;
+    float: left;
+    margin: 4px;
     background: #F2F2F2;
 }
-
 .imgView .appDiv > div img {
-    display:block;
-    margin:auto;
- }
-
-.status img{
-   margin: 4px;
+    display: block;
+    margin: auto;
+}
+.status img {
+    margin: 4px;
 }

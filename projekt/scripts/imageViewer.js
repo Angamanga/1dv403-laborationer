@@ -2,11 +2,11 @@
 
 DASHBOARD.ImageViewer = function() {
 
-      this.imgIco = "pics/imgView.png";
-    this.menuTxt = "ImageViewer";
+    this.setMenuIco("pics/imgView.png");
+    this.setMenuTxt("ImageViewer");
 };
 
-//ärver från viewer
+//ärver från Window();
 DASHBOARD.ImageViewer.prototype = new DASHBOARD.Window();
 
 //skapar plats for bilderna
@@ -22,14 +22,14 @@ DASHBOARD.ImageViewer.prototype.addPics = function(id) {
         thumbW,
         thumbH,
         n,
-        outline,
         appDiv,
         div,
         a,
         imageThumb;
-        
+
     //hittar ratt fonster
     thisWindow = document.getElementById("a" + id);
+
     //skriver ut laddikon i statusfaltet
     status = thisWindow.querySelector(".status");
     status.innerHTML = "Laddar";
@@ -38,15 +38,12 @@ DASHBOARD.ImageViewer.prototype.addPics = function(id) {
     status.appendChild(statusIco);
 
     //hamtar bildinformation
-
     images = new XMLHttpRequest();
-
     images.onreadystatechange = function() {
         if (images.readyState === 4 && images.status === 200) {
             imageArray = JSON.parse(images.responseText);
 
             //kontrollerar hojd och langd pa thumsbilerna
-
             widthArray = imageArray.map(function(imageArray) {
                 return imageArray.thumbWidth;
             });
@@ -94,15 +91,7 @@ DASHBOARD.ImageViewer.prototype.addPics = function(id) {
         div.appendChild(a);
         a.appendChild(imageThumb);
     };
-
 };
 
 
-DASHBOARD.ImageViewer.prototype.openLarge = function(imgUrl) {
-    
-    var n = new DASHBOARD.ImageViewer();
-    n.box("largeIw");
-    console.log("hej");    
-    
-    
-};
+window.onload = DASHBOARD.init();
